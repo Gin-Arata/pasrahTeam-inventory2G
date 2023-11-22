@@ -55,33 +55,8 @@
     <footer class="copyright">
         <p>&copy; 2023 PasrahTeam</p>
     </footer>
-    <script>
-        var Form1 = document.getElementById("Form1");
-        var Form2 = document.getElementById("Form2");
-
-        var Next1 = document.getElementById("Next1");
-        var Back1 = document.getElementById("Back1");
-        var Submit = document.getElementById("Submit");
-
-        // var progress = document.getElementById("progress");
-
-        Next1.onclick = function () {
-            Form1.style.left = "-450px";
-            Form2.style.left = "40px";
-            // progress.style.width = "240px";
-        }
-        Back1.onclick = function () {
-            Form1.style.left = "40px";
-            Form2.style.left = "450px";
-            // progress.style.width = "120px";
-        }
-        Submit.onclick = function () {
-            alert("Anda berhasil membuat akun");
-            header("Location: login.php");
-        }
-    </script>
-    <!-- </div> -->
     <!-- Bootstrap JS and Popper.js -->
+    <script src="Register.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
