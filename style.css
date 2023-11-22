@@ -1,18 +1,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Secular One', sans-serif;
+    font-family: sans-serif;
 }
 
-/* 
-.outer {
-    background-color: white;
-} */
-
-.bg {
-    background: url(img/gedungJTI.jpg) no-repeat center center fixed;
-    /* opacity: 70%; */
+/* background edit */
+.background-web {
+    background: url("img/gedungJTI.jpg") no-repeat center center fixed;
     background-size: cover;
     position: absolute;
     width: 100%;
@@ -23,44 +17,68 @@
     align-items: center;
     opacity: 50%;
 }
-.wrapper {
+/* end of background edit */
+
+/* box (biru) edit */
+.container{
+    width: 380px;
+    height: 460px;
+    align-content: center;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    border-radius: 20px;
     background-color: #225189;
-    opacity: 100%;
-    /* box-shadow: 1px 1px 15px 15px rgba(0, 0, 0, 0.5); */
 }
-.form-title {
-    font-size: 35px;
-    font-weight: 500;
-    text-align: center;
-    line-height: 100px;
-    color: white;
-    user-select: none;
-    border-radius: 15px 15px 0 0;
-    /* background: #12c2e9; */
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9); */
-    /* background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); */
-}
-.number, .password{
-    margin-bottom: 15px;
-}
-.wrapper>form {
-    padding: 20px 40px 30px 30px;
-}
-.wrapper>form>.form-field {
-    height: 50px;
-    width: 100%;
-    margin-top: 0px;
-    position: relative;
-}
+/* end of box (biru) edit */
 
-.wrapper>form .form-field>input {
+/* heading dalam box edit */
+h3 {
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    font-family: 'Secular One', sans-serif;
+    font-size: 2rem;
+}
+/* end of edit heading */
+
+/* form edit */
+.container form{
+    width: 280px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transition: 0.5s;
+}
+/* end of form edit */
+
+/* edit input */
+input{
+    width: 100%;
+    padding: 20px 40px 30px 30px;
+    margin: 5px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+/* end of edit input */
+
+/* edit label (nip/nim, password dll) */
+label {
+    font-family: 'Secular One';
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 7px;
+    color: white;
+}
+/* end of edit label */
+
+/* edit tampilan input */
+.container>form .form-field>input {
     height: 100%;
     width: 100%;
     outline: none;
@@ -68,32 +86,28 @@
     padding-left: 20px;
     border: 1px solid rgb(110, 110, 110);
     border-radius: 25px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
+/* end of tampilan input */
 
-.wrapper>form .form-field>input:focus {
-    border-color: #1030d3;
+/* edit lebar bubble input */
+.container>form>.form-field {
+    height: 50px;
+    width: 100%;
+    margin-top: 0px;
+    position: relative;
 }
+/* end of edit lebar bubble input */
 
-.wrapper>form>.form-field label {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    color: #6d6d6d;
-    font-weight: 400;
-    font-size: 20px;
-    pointer-events: none;
-    transform: translateY(-50%);
+/* edit focus in input */
+.container>form .form-field>input:focus {
+    border-color: whitesmoke;
 }
+/* end of edit focus in input */
 
-form>.form-field>input:focus~label {
-    top: 0%;
-    font-size: 20px;
-    border-color: #052fff;
-}
-
-form>.form-field>input[type="submit"] {
+/* edit button (input) */
+form>.form-field>input[type="button"],
+form>.form-field>input[type="submit"]{
     color: #fff;
     border: none;
     padding-left: 0;
@@ -102,19 +116,18 @@ form>.form-field>input[type="submit"] {
     cursor: pointer;
     background: #E5B300;
     font-family: 'Secular One', sans-serif;
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to right, #052fff, , #12c2e9);
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); */
 }
+/* end of edit button */
 
-form>.form-field>input[type="submit"]:hover {
+/* edit hover button (input) */
+form>.form-field>input[type="button"]:hover,
+form>.form-field>input[type="submit"]:hover{
     background: #E5B300;
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd);
-    background: linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd); */
     transform: scale(1.11);
 }
+/* end of edit hover button (input) */
 
+/* edit of link */
 form>.link {
     color: white;
     margin-top: 5px;
@@ -126,8 +139,66 @@ form>.link a {
     color: white;
     font-family: 'Secular One', sans-serif;
 }
+/* end of link */
 
-label {
-    margin-left: 7px;
+/* edit footer (copyright) */
+footer {
+    font-size: 14px;
+    align-content: bottom; 
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+    text-align: center;
+    /* padding: 5% 0; */
     color: white;
+    font-weight: bold;
+    font-family: 'Secular One', sans-serif;
 }
+/* end of edit footer (copyright) */
+
+/* edit multi-page for register and forgot pass */
+#Form2{
+    left: 450px;
+}
+
+/* #Form3{
+    left: -450px;
+} */
+
+.step-row {
+    width: 320px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+
+.step-col {
+    width: 120px;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+#progress {
+    /* position: absolute;
+    height: 100%;
+    width: 120px;
+    background: linear-gradient(to right, #ff105f, #ffad06); */
+    transition: 1s;
+}
+
+#progress::after{
+    /* content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06; */
+}
+/* end of edit multi-page */
