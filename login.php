@@ -7,7 +7,7 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             <div class="form-group form-field">
                 <input type="submit" class="btn btn-primary btn-block" value="Login" title="Login Now">
             </div>
-            <div class="link">Don't have an account? <a href="Register.php" title="Register">Register Now</a></div>
+            <div class="link">Don't have an account? <a href="register.php" title="Register">Register Now</a></div>
             <div class="link"><a href="Forgot_Password.php" title="ForgotPassword">Forgot password?</a></div>
         </form>
     </div>

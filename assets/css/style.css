@@ -6,7 +6,7 @@
 
 /* background edit */
 .background-web {
-    background: url("img/gedungJTI.jpg") no-repeat center center fixed;
+    background: url("../../img/gedungJTI.jpg") no-repeat center center fixed;
     background-size: cover;
     position: absolute;
     width: 100%;

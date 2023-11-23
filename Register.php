@@ -7,7 +7,7 @@
     <title>Register Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <h3>REGISTER</h3>
             <label>NIP/NIM</label>
             <div class="form-group form-field">
-                <input type="text" class="form-control" id="nomor-induk" placeholder="ex : 1234567890!" required>
+                <input type="text" class="form-control" id="nomor-induk" placeholder="ex : 1234567890" required>
             </div>
             <label>Email</label>
             <div class="form-group form-field">
@@ -56,7 +56,7 @@
         <p>&copy; 2023 PasrahTeam</p>
     </footer>
     <!-- Bootstrap JS and Popper.js -->
-    <script src="Register.js"></script>
+    <script src="/assets/js/register.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
