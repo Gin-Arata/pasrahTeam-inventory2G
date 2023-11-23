@@ -1,4 +1,4 @@
 # pasrahTeam-inventory2G
 
 
-ini adalah manajemen inventarisss
+ini adalah manajemen inventaris
