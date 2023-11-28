@@ -73,6 +73,11 @@
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
 }
 
+/* Set margin in button datatables */
+.shortcut-perizinan button {
+    margin: 2px;
+}
+
 /* Media screen Mobile */
 @media screen and (max-width: 768px) {
     /* Content Body */
@@ -108,9 +113,5 @@
 
     .shortcut-perizinan .shortcut-perizinan-content {
         width: 95%;
-    }
-
-    .shortcut-perizinan button {
-        margin: 2px;
     }
 }
