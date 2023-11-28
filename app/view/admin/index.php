@@ -34,6 +34,7 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Nama Peminjam</th>
                         <th>Nama Barang</th>
                         <th>Waktu Pinjam</th>
                         <th>Waktu Pengembalian</th>
@@ -46,6 +47,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>Joko</td>
                         <td>Kursi</td>
                         <td>24-10-2023</td>
                         <td>26-10-2023</td>
