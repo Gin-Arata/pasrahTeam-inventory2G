@@ -1,0 +1,116 @@
+/* Content Body */
+.main-content {
+    width: 84%;
+    height: 100vh;
+}
+
+/* Card Kelola Setting */
+.card-shortcut {
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6%;
+}
+
+.shortcut-barang, .shortcut-user {
+    width: 35%;
+}
+
+.card-body {
+    padding: 23px;
+}
+
+/* Setting padding card-text */
+.card-text {
+    padding-bottom: 10%;
+}
+
+/* Card setting box-shadow */
+.card {
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+}
+
+/* Setting anchor tag to button */
+.card-shortcut a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 136, 255);
+    padding: 13px 20px 13px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+/* Anchor tag hover */
+.card-shortcut a:hover {
+    background-color: rgb(0, 116, 218);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+
+/* Setting shortcut perizinan */
+.shortcut-perizinan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+/* Setting background shortcut perizinan */
+.shortcut-perizinan .shortcut-perizinan-content {
+    width: 76%;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: solid rgb(216, 216, 216) 1px;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+}
+
+/* Media screen Mobile */
+@media screen and (max-width: 768px) {
+    /* Content Body */
+    .main-content {
+        width: 87%;
+        height: 100%;
+    }
+
+    /* Card Kelola Setting */
+    .card-shortcut {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6%;
+    }
+
+    .shortcut-barang, .shortcut-user {
+        margin: 10px;
+        width: 95%;
+    }
+
+    /* Setting shortcut perizinan */
+    .shortcut-perizinan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .shortcut-perizinan .shortcut-perizinan-content {
+        width: 95%;
+    }
+
+    .shortcut-perizinan button {
+        margin: 2px;
+    }
+}
