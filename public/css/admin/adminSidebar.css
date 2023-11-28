@@ -63,10 +63,16 @@ body {
     transition: 0.3s;
 }
 
+/* Setting width img */
+.sidebar-content img {
+    width: 25px;
+    height: 25px;
+}
+
 /* Setting media query HP */
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 70px;
+        width: 60px;
         height: 100vh;
         flex-direction: column;
         align-items: center;
@@ -80,8 +86,8 @@ body {
     }
 
     .sidebar-content img {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
     }
 
     .sidebar-content p {
