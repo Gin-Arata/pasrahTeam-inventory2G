@@ -1,5 +1,6 @@
 /* Content Body */
 .main-content {
+    margin-left: 17%;
     width: 84%;
     height: 100vh;
 }
@@ -84,6 +85,7 @@
     .main-content {
         width: 87%;
         height: 100%;
+        margin-left: 13%;
     }
 
     /* Card Kelola Setting */

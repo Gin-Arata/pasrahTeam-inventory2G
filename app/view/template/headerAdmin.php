@@ -17,35 +17,33 @@
     <!-- CSS External -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminSidebar.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminIndex.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminInventarisir.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminBarang.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminUser.css">
     <!-- JS Fontawesome -->
     <script src="https://kit.fontawesome.com/b450899c31.js" crossorigin="anonymous"     ></script>
 </head>
 
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-main mt-3">
+    <div class="sidebar fixed-top">
+        <div class="sidebar-main">
             <a href="<?= BASEURL2 ?>/admin">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/home.png" alt="Home Logo">
                     <p>Home</p>
                 </div>
             </a>
-            <a href="">
+            <a href="<?= BASEURL2 ?>/admin/inventarisir">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/add-file.png" alt="Add barang Logo">
                     <p>Inventarisir</p>
                 </div>
             </a>
-            <a href="">
+            <a href="<?= BASEURL2 ?>/admin/barang">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/to-do.png" alt="List barang Logo">
                     <p>Daftar Barang</p>
                 </div>
             </a>
-            <a href="">
-                <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/result.png" alt="Home Logo" width="25">
-                    <p>Perizinan</p>
-                </div>
-            </a>
-            <a href="">
+            <a href="<?= BASEURL2 ?>/admin/user">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/group.png" alt="Home Logo" width="25">
                     <p>Daftar User</p>
                 </div>

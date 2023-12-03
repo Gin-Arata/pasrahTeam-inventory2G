@@ -1,0 +1,6 @@
+/* Setting mobile button aksi */
+@media (max-width: 1014px) {
+    .btn {
+        margin-bottom: 5px;
+    }
+}

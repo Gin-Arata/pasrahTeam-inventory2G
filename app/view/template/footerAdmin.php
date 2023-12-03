@@ -10,6 +10,8 @@
 
 <script>
     new DataTable('#shortcutPerizinan');
+    new DataTable('#daftarBarangTabel');
+    new DataTable('#daftarUserTabel');
 </script>
 </body>
 
