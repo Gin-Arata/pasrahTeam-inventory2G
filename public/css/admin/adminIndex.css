@@ -1,5 +1,6 @@
 /* Content Body */
 .main-content {
+    margin-left: 17%;
     width: 84%;
     height: 100vh;
 }
@@ -11,11 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6%;
+    gap: 3%;
 }
 
 .shortcut-barang, .shortcut-user {
-    width: 35%;
+    width: 45%;
 }
 
 .card-body {
@@ -60,12 +61,12 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: auto;
 }
 
 /* Setting background shortcut perizinan */
 .shortcut-perizinan .shortcut-perizinan-content {
-    width: 76%;
+    width: 93%;
     padding: 20px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -84,6 +85,7 @@
     .main-content {
         width: 87%;
         height: 100%;
+        margin-left: 13%;
     }
 
     /* Card Kelola Setting */

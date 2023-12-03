@@ -1,0 +1,12 @@
+#inputFormBarang {
+    width: 84%;
+    height: 100vh;
+    display: flex;
+    margin-left: 17%;
+}
+
+#inputFormBarang .input-container {
+    margin: 10px;
+    width: 97%;
+    height: 97vh;
+}

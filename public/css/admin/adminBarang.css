@@ -1,0 +1,26 @@
+/* Setting center daftar barnag */
+#daftarBarang, #daftarUser {
+    width: 84%;
+    margin-left: 16%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Setting flex-start h1 */
+#daftarBarang > h1, #daftarUser > h1 {
+    align-self: flex-start;
+    margin-left: 2.3%;
+}
+
+
+/* Setting tabel div */
+#daftarBarang .tabelBarang, #daftarUser .tabelUser {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: solid rgb(216, 216, 216) 1px;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+    width: 95%;
+}
