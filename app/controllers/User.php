@@ -26,5 +26,14 @@ class User extends Controller
         $this->view('template/headerUser');
         $this->view('user/menuPengembalian');
         $this->view('template/footerUser');
+
     }
+    public function menuHistory()
+    {
+        $this->view('template/headerUser');
+        $this->view('user/menuHistory');
+        $this->view('template/footerUser');
+    }
+
+
 }

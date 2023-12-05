@@ -52,7 +52,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'Histori' ? 'active' : ''; ?>">
-        <a href="<?= BASEURL2 ?>/user/History">
+        <a href="<?= BASEURL2 ?>/user/menuHistory">
           <i class='bx bx-history'></i>
           <span class="links_name">Histori</span>
         </a>
@@ -60,7 +60,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'User' ? 'active' : ''; ?>">
-        <a href="Akun.php">
+        <a href="menuAkunUser">
           <i class='bx bx-user'></i>
           <span class="links_name">User</span>
         </a>
