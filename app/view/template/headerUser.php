@@ -36,7 +36,7 @@
     </div>
     <ul class="nav-list">
       <li class="<?php echo $currentPage === 'Peminjaman' ? 'active' : ''; ?>">
-        <a href="MenuPeminjaman.php">
+        <a href="<?= BASEURL2 ?>/user/menuPeminjaman">
           <i class=' bx bx-plus-circle'></i>
       <span class="links_name">Peminjaman</span>
       </a>
@@ -44,7 +44,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'Pengembalian' ? 'active' : ''; ?>">
-        <a href="<?= BASEURL ?>/user/MenuPengembalian">
+        <a href="<?= BASEURL2 ?>/user/menuPengembalian">
           <i class='bx bx-box'></i>
           <span class="links_name">Pengembalian</span>
         </a>
@@ -52,7 +52,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'Histori' ? 'active' : ''; ?>">
-        <a href="<?= BASEURL ?>/user/History">
+        <a href="<?= BASEURL2 ?>/user/History">
           <i class='bx bx-history'></i>
           <span class="links_name">Histori</span>
         </a>
@@ -75,4 +75,5 @@
     <section class="home-section">
       <a href="<?= BASEURL ?>/user/index">
         <div class="text">INVENTARIS JTI POLINEMA</div>
+      </a>
     </section>
