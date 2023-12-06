@@ -19,20 +19,27 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Ini gambar</td>
-                    <td>Kursi</td>
-                    <td>K234</td>
-                    <td>Agus Susilo</td>
-                    <td>5</td>
-                    <td>Hibah</td>
-                    <td>Semua dalam kondisi baik.</td>
-                    <td>
-                        <a href="" class="btn btn-primary mb-1">Ubah</a>
-                        <a href="" class="btn btn-danger">Hapus</a>
-                    </td>
-                </tr>
+                <?php
+                $no = 1;
+                foreach($data['barang'] as $barang) {
+                    ?>
+                    <tr>
+                        <td><?= $no; ?></td>
+                        <td>Ini gambar</td>
+                        <td><?= $barang['nama_barang']; ?></td>
+                        <td><?= $barang['kode_barang']; ?></td>
+                        <td><?= $barang['maintainer_barang']; ?></td>
+                        <td><?= $barang['jumlah_barang'] ?></td>
+                        <td><?= $barang['asal_barang'] ?></td>
+                        <td><?= $barang['keterangan_barang'] ?></td>
+                        <td>
+                            <a href="" class="btn btn-primary mb-1">Ubah</a>
+                            <a href="" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                <?php 
+                $no++;
+                } ?>
             </tbody>
         </table>
     </div>

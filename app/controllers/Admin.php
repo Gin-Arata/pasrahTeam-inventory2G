@@ -14,8 +14,10 @@ class Admin extends Controller {
     }
 
     public function barang() {
+        $data['barang'] = $this->model('Admin_model')->getAllBarang();
+
         $this->view('template/headerAdmin');
-        $this->view('admin/barang');
+        $this->view('admin/barang', $data);
         $this->view('template/footerAdmin');
     }
 
