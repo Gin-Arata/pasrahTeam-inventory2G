@@ -5,7 +5,7 @@
     </div> -->
     <div class="container">
         <div class="form-control">
-            <div class="ml-2 mt-3 bg-JTI">
+            <div class="ml-3 mt-4 bg-JTI">
                 <h3>Peminjaman >> Form Peminjaman Barang </h3>
                 <p>Isilah data peminjaman pada form berikut dan tinjau apakah barang yang akan dipinjam sudah
                     benar. Lalu klik “Pinjam”</p>
@@ -65,7 +65,9 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
-                        <button type="button" class="btn btn-dark mr-4">Back</button>
+                        <button type="button" class="btn btn-dark mr-4">
+                            <a class="text-button" href="menuPeminjaman">Back</a>
+                        </button>
                         <button type="submit" class="btn btn-dark">Submit</button>
                     </div>
                 </form>

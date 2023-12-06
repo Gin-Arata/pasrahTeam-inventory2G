@@ -6,7 +6,7 @@
     </div> -->
     <div class="container">
         <div class="form-control">
-            <div class="ml-2 mt-3 bg-JTI">
+            <div class="ml-3 mt-4 bg-JTI">
                 <h3>Peminjaman >> Form Pengembqliqn Barang </h3>
                 <p>Isilah data peminjaman pada form berikut dan tinjau apakah barang yang akan dipinjam sudah
                     benar. Lalu klik “Pinjam”</p>
