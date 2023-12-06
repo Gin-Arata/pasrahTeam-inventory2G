@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?= BASEURL; ?>/css/user/userFormulir.css">
-<section class="home-section" style="background-color:transparent; margin-top:7%; box-shadow:none;">
+<section class="home-section" style="background-color:transparent; margin-top:6rem; box-shadow:none;">
     <!-- <div class="wrapper-text">
         <div class="text">Menu</div>
     </div> -->

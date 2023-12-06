@@ -70,3 +70,8 @@ form {
 a {
     color: white;
 }
+
+a:hover,
+a:focus {
+    color: white;
+}

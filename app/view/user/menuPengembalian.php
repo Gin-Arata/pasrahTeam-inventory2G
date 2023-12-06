@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?= BASEURL; ?>/css/user/userFormulir.css">
-
-<section class="home-section" style="background-color:transparent; margin-top:7%; box-shadow:none;">
+<section class="home-section" style="background-color:transparent; margin-top:6rem; box-shadow:none;">
     <!-- <div class="wrapper-text">
         <div class="text">Menu</div>
     </div> -->
@@ -56,7 +55,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
-                        <button type="submit" class="btn btn-dark">Dark</button>
+                        <button type="submit" class="btn btn-dark">Submit</button>
                     </div>
                     <!-- <div class="input-group mb-3 d-flex align-items-center justify-content-center">
                              <input type="submit" class="btn btn-primary flex-grow-1 ms-3" value="Login" title="Login Now">

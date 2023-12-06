@@ -16,7 +16,7 @@
   <!-- CSS Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-  <link rel="stylesheet" href="Sidebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@
       </ul>
     </div>
     <section class="home-section">
-      <a href="<?= BASEURL ?>/user/index">
+      <a href="<?= BASEURL2 ?>/user/index">
         <div class="text">INVENTARIS JTI POLINEMA</div>
       </a>
     </section>
