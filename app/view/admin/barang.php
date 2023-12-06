@@ -61,8 +61,8 @@
 
 
 <!-- Modal Edit Barang -->
-<?php foreach($data['barang'] as $dump) { ?>
-    <div class="modal fade" id="modalEditBarang<?= $dump['id_barang']; ?>" tabindex="-1"
+<?php foreach($data['barang'] as $modalEdit) { ?>
+    <div class="modal fade" id="modalEditBarang<?= $modalEdit['id_barang']; ?>" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -71,7 +71,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php var_dump($dump); ?>
+                    <?php var_dump($modalEdit); ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
