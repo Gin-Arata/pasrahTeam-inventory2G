@@ -1,0 +1,88 @@
+body {
+    font-family: 'Secular One', sans-serif;
+    /* background */
+    background: url("../../img/gedungJTI.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.home-section-home {
+    /* margin: 5rem; */
+    background-color: hsla(0, 0%, 85%, 0.7);
+    min-height: 100vh;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    /* text-align: center; */
+    padding: 10px;
+    margin: 10px;
+    /* margin: 5rem; */
+    padding: 5%;
+    /* margin: 1%; */
+    flex: 1 100%;
+    border-radius: 10px;
+}
+
+
+.wrapper>.main {
+    margin-left: 19%;
+    margin-top: 2%;
+    padding: 1.6%;
+    text-align: left;
+}
+
+.hello-user {
+    /* top: 14%; */
+    right: 5%;
+    position: absolute;
+    background-color: #E5B300;
+    border-radius: 25px;
+    /* Menggunakan border-radius dalam persen  */
+    padding: 0.75% 2%;
+    /* Menggunakan padding dalam persen  */
+    font-family: 'Secular One', sans-serif;
+}
+
+.main>h3 {
+    padding-top: 10%;
+    /* Menggunakan padding dalam persen */
+    padding-bottom: 3%;
+    font-family: 'Secular One', sans-serif;
+    font-weight: bolder;
+    font-size: 3.25em;
+    /* font-size: 4.7vw;  */
+    color: #2A5588;
+    align: left;
+}
+
+.main>p {
+    /* padding-left: 6%; */
+    /* Menggunakan padding dalam persen  */
+    font-family: 'Secular One', sans-serif;
+    font-weight: regular;
+    /* font-size: 1.25em; Menggunakan ukuran font dalam em */
+    font-size: 1.75em;
+    color: black;
+}
+
+.wrapper-text {
+    position: relative;
+    background: #E4E9F7;
+    /* min-height: 100vh; */
+    top: 0;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.text {
+    display: inline-block;
+}
+
+@media all and (min-width:800px) {
+    .main {
+        flex: 2;
+        order: 1;
+    }
+}
