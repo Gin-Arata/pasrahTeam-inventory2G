@@ -276,7 +276,7 @@ input[type="submit"]:hover {
     left: 65px;
     right: 0;
     /* width: 1375px; */
-    /* width: calc(100% - 65px); */
+    width: calc(100% - 65px);
     transition: all 0.5s ease;
     z-index: 9;
     position: absolute;
@@ -284,7 +284,6 @@ input[type="submit"]:hover {
     background: #E4E9F7;
     /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
     /* font-size: 55px; */
-    font-size: 0px;
 }
 
 .sidebar.open~.home-section {
