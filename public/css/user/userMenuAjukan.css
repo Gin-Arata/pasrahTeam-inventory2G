@@ -1,0 +1,72 @@
+form.example {
+    margin-left: 0;
+    margin-bottom: 2rem;
+}
+
+form.example input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    /* Gunakan unit yang responsif seperti em */
+    border: 1px solid grey;
+    width: calc(70% - 20px);
+    /* Sesuaikan lebar input dengan cara responsif */
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+form.example button {
+    padding: 10px;
+    font-size: 1em;
+    /* Gunakan unit yang responsif seperti em */
+    width: 5rem;
+    background: black;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+form.example .button-next {
+    width: 10rem;
+}
+
+p,
+form {
+    margin-left: 0;
+    font-size: 1em;
+    /* Gunakan unit yang responsif seperti em */
+}
+
+.container>h3 {
+    align-self: center;
+    margin-left: 0;
+}
+
+.container {
+    /* margin: 1rem 0px 0px 6.5%; */
+    margin: 0;
+    width: 90%;
+    /* Menggunakan unit persentase untuk responsif */
+    max-width: 1600px;
+    /* Batasi lebar maksimum jika diperlukan */
+    padding-right: 0rem;
+}
+
+.wrapper-text {
+    position: relative;
+    background: #E4E9F7;
+    /* min-height: 100vh; */
+    top: 0;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.text {
+    display: inline-block;
+}
+
+.text-button,
+a {
+    color: white;
+}
