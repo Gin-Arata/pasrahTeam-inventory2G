@@ -60,7 +60,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'User' ? 'active' : ''; ?>">
-        <a href="menuAkunUser">
+        <a href="menuAkun">
           <i class='bx bx-user'></i>
           <span class="links_name">User</span>
         </a>
