@@ -101,3 +101,7 @@ a:hover,
 a:focus {
     color: white;
 }
+
+input[type="number"] {
+    width: 2.5rem;
+}
