@@ -22,8 +22,31 @@ class Admin extends Controller {
     }
 
     public function user() {
+        $data['user'] = $this->model('Admin_model')->getAllUser();
+
         $this->view('template/headerAdmin');
-        $this->view('admin/user');
+        $this->view('admin/user', $data);
         $this->view('template/footerAdmin');
+    }
+
+    // method tambah barang
+    public function tambahBarang() {
+        $this->model('Admin_model')->tambahBarang($_POST, $_FILES);
+
+        header('Location: ' . BASEURL2 . '/admin/inventarisir');
+    }
+
+    // method hapus barang
+    public function hapusBarang($id_barang) {
+        $this->model('Admin_model')->hapusBarang($id_barang);
+
+        header('Location: ' . BASEURL2 . '/admin/barang');
+    }
+
+    // method edit barang
+    public function editBarang() {
+        $this->model('Admin_model')->editBarang($_POST, $_FILES);
+
+        header('Location: ' . BASEURL2 . '/admin/barang');
     }
 }
