@@ -12,6 +12,20 @@ class Admin_model
         $this->db = new Database;
     }
 
+    // method total barang
+    public function totalBarang()
+    {
+        $this->db->query("SELECT COUNT(id_barang) as total_barang FROM $this->tableBarang");
+        return $this->db->single();
+    }
+
+    // method total user
+    public function totalUser()
+    {
+        $this->db->query("SELECT COUNT(id_user) as total_user FROM $this->tableUser");
+        return $this->db->single();
+    }
+
     public function getAllBarang()
     {
         $this->db->query("SELECT * FROM $this->tableBarang");
@@ -25,7 +39,7 @@ class Admin_model
     }
 
     public function getAllPeminjaman() {
-        $this->db->query("SELECT * FROM $this->tablePeminjaman as p JOIN $this->tableUser as u ON p.id_user = u.id_user");
+        $this->db->query("SELECT * FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang");
         return $this->db->resultSet();
     }
 
@@ -135,4 +149,11 @@ class Admin_model
         return $this->db->execute();
     }
 
+    // function konfirmasi peminjaman
+    public function updateStatusPeminjaman($data) {
+        $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = :status_pinjam WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('id_peminjaman', $data['id_pinjam']);
+        $this->db->bind('status_pinjam', $data['status']);
+        return $this->db->execute();
+    }
 }

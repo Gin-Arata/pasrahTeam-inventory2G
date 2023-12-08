@@ -3,6 +3,8 @@
 class Admin extends Controller {
     public function index() {
         $data['peminjaman'] = $this->model('Admin_model')->getAllPeminjaman();
+        $data['totalBarang'] = $this->model('Admin_model')->totalBarang();
+        $data['totalUser'] = $this->model('Admin_model')->totalUser();
 
         $this->view('template/headerAdmin');
         $this->view('admin/index', $data);
@@ -71,5 +73,12 @@ class Admin extends Controller {
         $this->model('Admin_model')->hapusUser($id_user);
 
         header('Location: ' . BASEURL2 . '/admin/user');
+    }
+    
+    // method konfirmasi peminjaman
+    public function updateStatusPinjam() {
+        $this->model('Admin_model')->updateStatusPeminjaman($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin');
     }
 }
