@@ -20,7 +20,7 @@
                 <!-- Password admin 1234 -->
                 <?php
                 $no = 1;
-                foreach($data['user'] as $rowUser) { ?>
+                foreach ($data['user'] as $rowUser) { ?>
                     <tr>
                         <td>
                             <?= $no ?>
@@ -38,8 +38,10 @@
                             <?= $rowUser['level'] ?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-primary">Ubah</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                            <a href="" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#editUserModal<?= $rowUser['id_user'] ?>">Ubah</a>
+                            <a href="<?= BASEURL2 ?>/admin/hapusUser/<?= $rowUser['id_user'] ?>"
+                                class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     <?php $no++;
@@ -50,7 +52,7 @@
 
 
 
-    <!-- Modal Box Tambah Barang-->
+    <!-- Modal Box Tambah User -->
     <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -59,43 +61,102 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST">
+                    <form action="<?= BASEURL2 ?>/admin/tambahUser" method="POST">
                         <label for="nomorInduk">Nomor Induk</label>
-                        <input type="text" class="form-control" placeholder="ex: 2241720081" id="nomorInduk">
+                        <input name="nomor_induk" type="text" class="form-control" placeholder="ex: 2241720081"
+                            id="nomorInduk">
 
                         <label for="emailUser">Email User</label>
-                        <input type="text" class="form-control" placeholder="ex: tukiyemcakep@gmail.com" id="emailUser">
+                        <input name="email_user" type="email" class="form-control"
+                            placeholder="ex: tukiyemcakep@gmail.com" id="emailUser">
 
                         <label for="namaUser">Nama User</label>
-                        <input type="text" class="form-control" placeholder="ex: Tukiyem" id="namaUser">
+                        <input name="nama_user" type="text" class="form-control" placeholder="ex: Tukiyem"
+                            id="namaUser">
 
                         <label for="passwordUser">Password User</label>
-                        <input type="password" class="form-control" placeholder="ex: password" id="passwordUser">
+                        <input name="pass_user" type="password" class="form-control" placeholder="ex: password"
+                            id="passwordUser">
 
                         <div class="form-group">
                             <label for="levelUser">Level User</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                <input class="form-check-input" type="radio" name="level_user" value="admin"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Admin
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1" checked>
+                                <input class="form-check-input" type="radio" name="level_user" id="flexRadioDefault1"
+                                    value="user" checked>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     User
                                 </label>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Tambahkan</button>
+                    <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+
+
+    <!-- Modal Box Edit User -->
+    <?php foreach ($data['user'] as $editUser) { ?>
+        <div class="modal fade" id="editUserModal<?= $editUser['id_user'] ?>" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= BASEURL2 ?>/admin/editUser" method="POST">
+                            <label for="nomorInduk">Nomor Induk</label>
+                            <input name="nomor_induk" type="text" class="form-control" id="nomorInduk"
+                                value="<?= $editUser['nomor_induk'] ?>">
+
+                            <label for="emailUser">Email User</label>
+                            <input name="email_user" type="email" class="form-control" id="emailUser"
+                                value="<?= $editUser['email_user'] ?>">
+
+                            <label for="namaUser">Nama User</label>
+                            <input name="nama_user" type="text" class="form-control" id="namaUser"
+                                value="<?= $editUser['nama_user'] ?>">
+
+                            <div class="form-group">
+                                <label for="levelUser">Level User</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="level_user" value="admin"
+                                        id="flexRadioDefault1" <?php echo ($editUser['level'] == 'admin') ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Admin
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="level_user" id="flexRadioDefault2"
+                                        value="user" <?php echo ($editUser['level'] == 'user') ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        User
+                                    </label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="id_user" value="<?= $editUser['id_user'] ?>">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 </div>

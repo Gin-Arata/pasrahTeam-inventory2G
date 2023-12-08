@@ -2,8 +2,12 @@
 
 class Admin extends Controller {
     public function index() {
+        $data['peminjaman'] = $this->model('Admin_model')->getAllPeminjaman();
+        $data['totalBarang'] = $this->model('Admin_model')->totalBarang();
+        $data['totalUser'] = $this->model('Admin_model')->totalUser();
+
         $this->view('template/headerAdmin');
-        $this->view('admin/index');
+        $this->view('admin/index', $data);
         $this->view('template/footerAdmin');
     }
 
@@ -48,5 +52,33 @@ class Admin extends Controller {
         $this->model('Admin_model')->editBarang($_POST, $_FILES);
 
         header('Location: ' . BASEURL2 . '/admin/barang');
+    }
+
+    // method tambah User
+    public function tambahUser() {
+        $this->model('Admin_model')->tambahUser($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin/user');
+    }
+
+    // method edit User
+    public function editUser() {
+        $this->model('Admin_model')->editUser($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin/user');
+    }
+
+    // method hapus User
+    public function hapusUser($id_user) {
+        $this->model('Admin_model')->hapusUser($id_user);
+
+        header('Location: ' . BASEURL2 . '/admin/user');
+    }
+    
+    // method konfirmasi peminjaman
+    public function updateStatusPinjam() {
+        $this->model('Admin_model')->updateStatusPeminjaman($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin');
     }
 }

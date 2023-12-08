@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Kelola Barang</h5>
                     <p class="card-text">
-                        Jumlah barang : ... Yang terdaftar
+                        Total Barang : <?= $data['totalBarang']['total_barang'] ?> Barang
                     </p>
                     <a href="<?= BASEURL2 ?>/admin/barang" class="card-link">Kelola</a>
                 </div>
@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Kelola User</h5>
                     <p class="card-text">
-                        Jumlah user : ... Yang terdaftar
+                        Total User : <?= $data['totalUser']['total_user'] ?> User
                     </p>
                     <a href="<?= BASEURL2 ?>/admin/user" class="card-link">Kelola</a>
                 </div>
@@ -38,30 +38,54 @@
                         <th>Nama Barang</th>
                         <th>Waktu Pinjam</th>
                         <th>Waktu Pengembalian</th>
-                        <th>Jumlah Barang</th>
+                        <th>Jumlah Dipinjam</th>
                         <th>Keterangan Pinjam</th>
                         <th>Konfirmasi</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Joko</td>
-                        <td>Kursi</td>
-                        <td>24-10-2023</td>
-                        <td>26-10-2023</td>
-                        <td>3</td>
-                        <td>Untuk kepentingan rapat</td>
-                        <td>
-                            <form action="">
-                                <button type="submit" class="btn btn-primary" name="status"
-                                    value="disetujui">Terima</button>
-                                <button type="submit" class="btn btn-danger" name="status"
-                                    value="ditolak">Tolak</button>
-                            </form>
-                        </td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    foreach ($data['peminjaman'] as $peminjaman) {
+                        if ($peminjaman['status_pinjam'] == 'Proses') {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $no ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['nama_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['nama_barang'] ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['waktu_pinjam'] ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['waktu_pengembalian'] ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['jumlah_dipinjam'] ?>
+                                </td>
+                                <td>
+                                    <?= $peminjaman['keterangan_pinjam'] ?>
+                                </td>
+                                <td>
+                                    <form action="<?= BASEURL2 ?>/admin/updateStatusPinjam" method="POST">
+                                        <input type="hidden" name="id_pinjam" value="<?= $peminjaman['id_peminjaman'] ?>">
+
+                                        <button type="submit" class="btn btn-primary" name="status"
+                                            value="Disetujui">Terima</button>
+
+                                        <button type="submit" class="btn btn-danger" name="status"
+                                            value="Ditolak">Tolak</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php }
+                    } ?>
                 </tbody>
             </table>
         </div>

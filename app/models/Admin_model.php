@@ -4,11 +4,26 @@ class Admin_model
 {
     private $tableBarang = 'barang';
     private $tableUser = 'user';
+    private $tablePeminjaman = 'peminjaman';
     private $db;
 
     public function __construct()
     {
         $this->db = new Database;
+    }
+
+    // method total barang
+    public function totalBarang()
+    {
+        $this->db->query("SELECT COUNT(id_barang) as total_barang FROM $this->tableBarang");
+        return $this->db->single();
+    }
+
+    // method total user
+    public function totalUser()
+    {
+        $this->db->query("SELECT COUNT(id_user) as total_user FROM $this->tableUser");
+        return $this->db->single();
     }
 
     public function getAllBarang()
@@ -20,6 +35,11 @@ class Admin_model
     public function getAllUser()
     {
         $this->db->query("SELECT * FROM $this->tableUser");
+        return $this->db->resultSet();
+    }
+
+    public function getAllPeminjaman() {
+        $this->db->query("SELECT * FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang");
         return $this->db->resultSet();
     }
 
@@ -99,4 +119,41 @@ class Admin_model
         return $this->db->execute();
     }
 
+    // function tambah user
+    public function tambahUser($data) {
+        $this->db->query("INSERT INTO $this->tableUser(nama_user, nomor_induk, email_user, password_user, level) VALUES(:nama_user, :nomor_induk, :email_user, :pass_user, :level_user)");
+        $this->db->bind('nama_user', htmlspecialchars($data['nama_user']));
+        $this->db->bind('nomor_induk', htmlspecialchars($data['nomor_induk']));
+        $this->db->bind('email_user', htmlspecialchars($data['email_user']));
+        $this->db->bind('pass_user', htmlspecialchars(md5($data['pass_user'])));
+        $this->db->bind('level_user', htmlspecialchars($data['level_user']));
+        return $this->db->execute();
+    }
+
+    // function hapus user
+    public function hapusUser($id_user) {
+        $this->db->query("DELETE FROM $this->tableUser WHERE id_user = :id_user");
+        $this->db->bind('id_user', $id_user);
+        return $this->db->execute();
+    }
+
+    // function edit user
+    public function editUser($data) {
+        $this->db->query("UPDATE $this->tableUser SET nama_user = :nama_user, nomor_induk = :nomor_induk, email_user = :email_user, password_user = :pass_user, level = :level_user WHERE id_user = :id_user");
+        $this->db->bind('id_user', $data['id_user']);
+        $this->db->bind('nama_user', htmlspecialchars($data['nama_user']));
+        $this->db->bind('nomor_induk', htmlspecialchars($data['nomor_induk']));
+        $this->db->bind('email_user', htmlspecialchars($data['email_user']));
+        $this->db->bind('pass_user', htmlspecialchars(md5($data['pass_user'])));
+        $this->db->bind('level_user', htmlspecialchars($data['level_user']));
+        return $this->db->execute();
+    }
+
+    // function konfirmasi peminjaman
+    public function updateStatusPeminjaman($data) {
+        $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = :status_pinjam WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('id_peminjaman', $data['id_pinjam']);
+        $this->db->bind('status_pinjam', $data['status']);
+        return $this->db->execute();
+    }
 }
