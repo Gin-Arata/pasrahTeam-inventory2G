@@ -22,8 +22,17 @@ class Admin extends Controller {
     }
 
     public function user() {
+        $data['user'] = $this->model('Admin_model')->getAllUser();
+
         $this->view('template/headerAdmin');
-        $this->view('admin/user');
+        $this->view('admin/user', $data);
         $this->view('template/footerAdmin');
+    }
+
+    // method tambah barang
+    public function tambahBarang() {
+        $this->model('Admin_model')->tambahBarang($_POST, $_FILES);
+
+        header('Location: ' . BASEURL2 . '/admin/inventarisir');
     }
 }

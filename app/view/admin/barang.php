@@ -27,7 +27,7 @@
                         <td>
                             <?= $no; ?>
                         </td>
-                        <td>Ini gambar</td>
+                        <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang" width="100px"></td>
                         <td>
                             <?= $barang['nama_barang']; ?>
                         </td>

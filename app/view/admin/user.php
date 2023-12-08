@@ -17,24 +17,40 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Rendi Putra Kusuma</td>
-                    <td>2241720124</td>
-                    <td>rendiputra@gmail.com</td>
-                    <td>User</td>
-                    <td>
-                        <a href="" class="btn btn-primary">Ubah</a>
-                        <a href="" class="btn btn-danger">Hapus</a>
-                    </td>
-                </tr>
+                <!-- Password admin 1234 -->
+                <?php
+                $no = 1;
+                foreach($data['user'] as $rowUser) { ?>
+                    <tr>
+                        <td>
+                            <?= $no ?>
+                        </td>
+                        <td>
+                            <?= $rowUser['nama_user'] ?>
+                        </td>
+                        <td>
+                            <?= $rowUser['nomor_induk'] ?>
+                        </td>
+                        <td>
+                            <?= $rowUser['email_user'] ?>
+                        </td>
+                        <td>
+                            <?= $rowUser['level'] ?>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-primary">Ubah</a>
+                            <a href="" class="btn btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                    <?php $no++;
+                } ?>
             </tbody>
         </table>
     </div>
 
 
 
-    <!-- Modal Box -->
+    <!-- Modal Box Tambah Barang-->
     <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
