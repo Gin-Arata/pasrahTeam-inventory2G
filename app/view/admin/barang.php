@@ -21,13 +21,14 @@
             <tbody>
                 <?php
                 $no = 1;
-                foreach($data['barang'] as $barang) {
+                foreach ($data['barang'] as $barang) {
                     ?>
                     <tr>
                         <td>
                             <?= $no; ?>
                         </td>
-                        <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang" width="100px"></td>
+                        <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang"
+                                width="100px"></td>
                         <td>
                             <?= $barang['nama_barang']; ?>
                         </td>
@@ -49,7 +50,8 @@
                         <td>
                             <a class="btn btn-primary mb-1" data-bs-toggle="modal"
                                 data-bs-target="#modalEditBarang<?= $barang['id_barang'] ?>">Ubah</a>
-                            <a href="" class="btn btn-danger">Hapus</a>
+                            <a href="<?= BASEURL2 ?>/admin/hapusBarang/<?= $barang['id_barang'] ?>"
+                                class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     <?php
@@ -62,7 +64,7 @@
 
 
 <!-- Modal Edit Barang -->
-<?php foreach($data['barang'] as $modalEdit) { ?>
+<?php foreach ($data['barang'] as $modalEdit) { ?>
     <div class="modal fade" id="modalEditBarang<?= $modalEdit['id_barang']; ?>" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -71,34 +73,39 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Barang</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="">
+                <form action="<?= BASEURL2 ?>/admin/editBarang" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
                         <label for="namaBarang">Nama Barang</label>
-                        <input type="text" class="form-control" id="namaBarang" value="<?= $modalEdit['nama_barang'] ?>">
+                        <input type="text" name="edit_nama" class="form-control" id="namaBarang" value="<?= $modalEdit['nama_barang'] ?>">
 
                         <label for="kodeBarang">Kode Barang</label>
-                        <input type="text" class="form-control" id="kodeBarang" value="<?= $modalEdit['kode_barang'] ?>" disabled>
+                        <input type="text" class="form-control" id="kodeBarang" value="<?= $modalEdit['kode_barang'] ?>"
+                            disabled>
 
                         <label for="maintainBarang">Maintainer Barang</label>
-                        <input type="text" class="form-control" id="maintainBarang" value="<?= $modalEdit['maintainer_barang'] ?>">
+                        <input type="text" name="edit_maintain" class="form-control" id="maintainBarang"
+                            value="<?= $modalEdit['maintainer_barang'] ?>">
 
                         <label for="jmlBarang">Jumlah Barang</label>
-                        <input type="text" class="form-control" id="jmlBarang" value="<?= $modalEdit['jumlah_barang'] ?>">
+                        <input type="text" name="edit_jumlah" class="form-control" id="jmlBarang" value="<?= $modalEdit['jumlah_barang'] ?>">
 
                         <label for="asalBarang">Asal Barang</label>
-                        <input type="text" class="form-control" id="asalBarang" value="<?= $modalEdit['asal_barang'] ?>" disabled>
+                        <input type="text" class="form-control" id="asalBarang" value="<?= $modalEdit['asal_barang'] ?>"
+                            disabled>
 
                         <label for="ketBarang">Keterangan Barang</label>
-                        <textarea class="form-control" name="" id="ketBarang" cols="30" rows="5"><?= $modalEdit['keterangan_barang'] ?></textarea>
+                        <textarea class="form-control" name="edit_keterangan" id="ketBarang" cols="30"
+                            rows="5"><?= $modalEdit['keterangan_barang'] ?></textarea>
 
                         <label for="gambarBarang">Gambar Barang</label>
-                        <input type="file" class="form-control">
+                        <input type="file" name="edit_gambar" class="form-control">
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
+                        <input type="hidden" name="id_barang" value="<?= $modalEdit['id_barang'] ?>">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
         </div>
