@@ -9,8 +9,6 @@
             <h3>Ajukan Peminjaman Alat</h3>
             <p>Cari item yang ingin Anda pinjam, jika ada pilih yang anda perlukan lalu klik button selanjutnya</p>
             <form class="example mr-3 mb-4" action="action_page.php">
-                <input type="text" placeholder="Search.." name="cariBarang">
-                <button type="submit" name="buttonCariBarang"><i class="fa fa-search"></i></button>
                 <table id="tabelPilihBarang" class="table table-striped mt-3" style="width:100%">
                     <thead>
                         <tr>
@@ -24,11 +22,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo 'ApA'; ?></td>
-                            <td><?php echo 'APA'; ?></td>
-                            <td><?php echo 'ApA'; ?></td>
-                            <td><?php echo 'ApA'; ?></td>
-                            <td><?php echo 'ApA'; ?></td>
+                            <td>
+                                <?php echo 'ApA'; ?>
+                            </td>
+                            <td>
+                                <?php echo 'APA'; ?>
+                            </td>
+                            <td>
+                                <?php echo 'ApA'; ?>
+                            </td>
+                            <td>
+                                <?php echo 'ApA'; ?>
+                            </td>
+                            <td>
+                                <?php echo 'ApA'; ?>
+                            </td>
                             <td><input type="checkbox" id=".." name=".." value=".."></td>
                         </tr>
                     </tbody>
