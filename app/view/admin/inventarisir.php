@@ -4,6 +4,11 @@
             <h1>Tambah Barang</h1>
         </div>
         <form action="<?= BASEURL2 ?>/admin/tambahBarang" method="POST" enctype="multipart/form-data" class="ms-3">
+            <div class="row mb-0">
+                <div class="col-10">
+                    <?php Flasher::flash(); ?>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-10">
                     <label for="namaBarang">Nama Barang</label>
