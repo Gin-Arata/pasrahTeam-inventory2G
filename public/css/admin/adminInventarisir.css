@@ -1,12 +1,26 @@
 #inputFormBarang {
-    width: 84%;
+    width: 90%;
     height: 100vh;
     display: flex;
-    margin-left: 17%;
+    margin-left: 16%;
 }
 
 #inputFormBarang .input-container {
-    margin: 10px;
-    width: 97%;
+    width: 100%;
     height: 97vh;
+}
+
+#inputFormBarang .row {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    #inputFormBarang {
+        margin-left: 13%;
+    }
+
+    #inputFormBarang .row {
+        margin-left: 0;
+    }
 }

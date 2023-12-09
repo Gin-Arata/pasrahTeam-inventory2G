@@ -12,8 +12,10 @@ class Admin extends Controller {
     }
 
     public function inventarisir() {
+        $data['asal'] = $this->model('Admin_model')->getAllAsalBarang();
+
         $this->view('template/headerAdmin');
-        $this->view('admin/inventarisir');
+        $this->view('admin/inventarisir', $data);
         $this->view('template/footerAdmin');
     }
 
@@ -80,5 +82,12 @@ class Admin extends Controller {
         $this->model('Admin_model')->updateStatusPeminjaman($_POST);
 
         header('Location: ' . BASEURL2 . '/admin');
+    }
+
+    // method Tambah asal barang
+    public function tambahAsalBarang() {
+        $this->model('Admin_model')->tambahAsalBarang($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin/inventarisir');
     }
 }

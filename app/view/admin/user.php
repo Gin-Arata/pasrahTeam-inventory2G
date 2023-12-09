@@ -1,5 +1,7 @@
 <div id="daftarUser">
-    <h1 class="mb-3 mt-2">Daftar User</h1>
+    <div class="navbar-home">
+        <h1>Daftar User</h1>
+    </div>
 
     <div class="tabelUser table-responsive">
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#userModal">Tambah

@@ -6,7 +6,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Kelola Barang</h5>
                     <p class="card-text">
-                        Total Barang : <?= $data['totalBarang']['total_barang'] ?> Barang
+                        Total Barang :
+                        <?= $data['totalBarang']['total_barang'] ?> Barang
                     </p>
                     <a href="<?= BASEURL2 ?>/admin/barang" class="card-link">Kelola</a>
                 </div>
@@ -18,7 +19,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Kelola User</h5>
                     <p class="card-text">
-                        Total User : <?= $data['totalUser']['total_user'] ?> User
+                        Total User :
+                        <?= $data['totalUser']['total_user'] ?> User
                     </p>
                     <a href="<?= BASEURL2 ?>/admin/user" class="card-link">Kelola</a>
                 </div>

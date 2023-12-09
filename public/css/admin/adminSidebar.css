@@ -13,7 +13,7 @@ body {
 /* Sidebar Background */
 .sidebar {
     align-self: auto;
-    background-color: rgb(0, 136, 255);
+    background-color: #7f98c8;
     height: 100vh;
     width: 16%;
     display: flex;
@@ -30,7 +30,8 @@ body {
 /* Delete Style Anchor */
 .sidebar a {
     text-decoration: none;
-    color: white;
+    color: #294172;
+    font-weight: bold;
     font-size: 1rem;
 }
 
@@ -49,7 +50,8 @@ body {
 
 /* Setting Hover Sidebar */
 .sidebar a:hover {
-    background-color: rgb(0, 116, 218);
+    color: white;
+    background-color: #225189;
     transition: 0.3s;
 }
 
@@ -71,7 +73,7 @@ body {
 /* Setting media query HP */
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 60px;
+        width: 13%;
         height: 100vh;
         flex-direction: column;
         align-items: center;
@@ -100,7 +102,7 @@ body {
 }
 
     .sidebar a:hover {
-        background-color: rgb(0, 116, 218);
+        background-color: #225189;
         border-radius: 10px;
         transition: 0.3s;
 }

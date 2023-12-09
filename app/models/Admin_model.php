@@ -5,6 +5,7 @@ class Admin_model
     private $tableBarang = 'barang';
     private $tableUser = 'user';
     private $tablePeminjaman = 'peminjaman';
+    private $tableAsalBarang = 'asal_barang';
     private $db;
 
     public function __construct()
@@ -28,13 +29,18 @@ class Admin_model
 
     public function getAllBarang()
     {
-        $this->db->query("SELECT * FROM $this->tableBarang");
+        $this->db->query("SELECT * FROM $this->tableBarang AS b INNER JOIN $this->tableAsalBarang AS a ON b.id_asal = a.id_asal");
         return $this->db->resultSet();
     }
 
     public function getAllUser()
     {
         $this->db->query("SELECT * FROM $this->tableUser");
+        return $this->db->resultSet();
+    }
+
+    public function getAllAsalBarang() {
+        $this->db->query("SELECT * FROM $this->tableAsalBarang");
         return $this->db->resultSet();
     }
 
@@ -59,14 +65,14 @@ class Admin_model
         $tmpFile = $img['gambar_barang']['tmp_name'];
         move_uploaded_file($tmpFile, $targetDirImg . $gambar_barang);
 
-        $this->db->query("INSERT INTO $this->tableBarang(nama_barang, kode_barang, maintainer_barang, jumlah_barang, asal_barang, keterangan_barang, gambar_barang) VALUES(:nama_barang, :kode_barang, :maintainer_barang, :jumlah_barang, :asal_barang, :keterangan_barang, :gambar_barang)");
+        $this->db->query("INSERT INTO $this->tableBarang(nama_barang, kode_barang, maintainer_barang, jumlah_barang, keterangan_barang, gambar_barang, id_asal) VALUES(:nama_barang, :kode_barang, :maintainer_barang, :jumlah_barang, :keterangan_barang, :gambar_barang, :id_asal)");
         $this->db->bind('nama_barang', htmlspecialchars($data['nama_barang']));
         $this->db->bind('kode_barang', htmlspecialchars($data['kode_barang']));
         $this->db->bind('maintainer_barang', htmlspecialchars($data['maintainer_barang']));
         $this->db->bind('jumlah_barang', htmlspecialchars($data['jumlah_barang']));
-        $this->db->bind('asal_barang', htmlspecialchars($data['asal_barang']));
         $this->db->bind('keterangan_barang', htmlspecialchars($data['keterangan_barang']));
         $this->db->bind('gambar_barang', htmlspecialchars($gambar_barang));
+        $this->db->bind('id_asal', htmlspecialchars($data['asal_barang']));
         return $this->db->execute();
     }
 
@@ -154,6 +160,13 @@ class Admin_model
         $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = :status_pinjam WHERE id_peminjaman = :id_peminjaman");
         $this->db->bind('id_peminjaman', $data['id_pinjam']);
         $this->db->bind('status_pinjam', $data['status']);
+        return $this->db->execute();
+    }
+
+    // function tambah asal barang
+    public function tambahAsalBarang($data) {
+        $this->db->query("INSERT INTO $this->tableAsalBarang(asal_barang) VALUES(:asal_barang)");
+        $this->db->bind('asal_barang', htmlspecialchars($data['asalBarangBaru']));
         return $this->db->execute();
     }
 }
