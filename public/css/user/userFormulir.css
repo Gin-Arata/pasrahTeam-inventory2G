@@ -94,6 +94,16 @@ button {
     align-content: center;
 }
 
+.btn > a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn > a:hover {
+    text-decoration: none;
+    color: white;
+}
+
 /* .menu-section {
     position: relative;
     background: transparent;

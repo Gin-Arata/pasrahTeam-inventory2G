@@ -68,5 +68,11 @@ form {
 
 .text-button,
 a {
+    text-decoration: none;
+    color: white;
+}
+
+.text-button, a:hover {
+    text-decoration: none;
     color: white;
 }
