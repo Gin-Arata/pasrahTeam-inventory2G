@@ -71,4 +71,9 @@ class Database {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Count ada berapa banyak data yang diubah di database
+    public function rowCount() {
+        return $this->stmt->rowCount();
+    }
 }

@@ -4,6 +4,11 @@
     </div>
 
     <div class="tabelBarang table-responsive">
+        <div class="row mb-0">
+            <div class="col-12">
+                <?php Flasher::flash(); ?>
+            </div>
+        </div>
         <!-- <a href="<?= BASEURL2; ?>/admin/inventarisir" class="btn btn-primary mb-3">Tambah Barang</a> -->
         <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
             <thead>
@@ -118,8 +123,8 @@
 
 <!-- Modal Hapus User -->
 <?php foreach ($data['barang'] as $hapusModal) { ?>
-    <div class="modal fade" id="hapusBarang<?= $hapusModal['id_barang'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="hapusBarang<?= $hapusModal['id_barang'] ?>" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -131,7 +136,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <a href="<?= BASEURL2 ?>/admin/hapusBarang/<?= $hapusModal['id_barang'] ?>" class="btn btn-danger">Hapus</a>
+                    <a href="<?= BASEURL2 ?>/admin/hapusBarang/<?= $hapusModal['id_barang'] ?>"
+                        class="btn btn-danger">Hapus</a>
                 </div>
             </div>
         </div>

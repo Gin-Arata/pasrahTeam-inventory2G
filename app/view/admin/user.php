@@ -2,8 +2,12 @@
     <div class="navbar-home">
         <h1>Daftar User</h1>
     </div>
-
     <div class="tabelUser table-responsive">
+        <div class="row mb-0">
+            <div class="col-12">
+                <?php Flasher::flash(); ?>
+            </div>
+        </div>
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#userModal">Tambah
             User</button>
         <table id="daftarUserTabel" class="table table-striped" style="width:100%">
