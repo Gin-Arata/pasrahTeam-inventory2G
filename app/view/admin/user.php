@@ -42,8 +42,8 @@
                         <td>
                             <a href="" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#editUserModal<?= $rowUser['id_user'] ?>">Ubah</a>
-                            <a href="<?= BASEURL2 ?>/admin/hapusUser/<?= $rowUser['id_user'] ?>"
-                                class="btn btn-danger">Hapus</a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#hapusUser<?= $rowUser['id_user'] ?>">Hapus</button>
                         </td>
                     </tr>
                     <?php $no++;
@@ -157,6 +157,29 @@
                         <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+    <!-- Modal Hapus User -->
+    <?php foreach ($data['user'] as $hapusModal) { ?>
+        <div class="modal fade" id="hapusUser<?= $hapusModal['id_user'] ?>" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah Anda Yakin Ingin Menghapus?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <a href="<?= BASEURL2 ?>/admin/hapusUser/<?= $hapusModal['id_user'] ?>"
+                            class="btn btn-danger">Hapus</a>
+                    </div>
                 </div>
             </div>
         </div>
