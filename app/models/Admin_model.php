@@ -169,4 +169,13 @@ class Admin_model
         $this->db->bind('asal_barang', htmlspecialchars($data['asalBarangBaru']));
         return $this->db->execute();
     }
+
+    // function tolak pesan peminjaman
+    public function tolakPeminjaman($data) {
+        $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = :status_pinjam, pesan_penolakan = :pesan_tolak WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('id_peminjaman', $data['id_pinjam']);
+        $this->db->bind('status_pinjam', $data['status']);
+        $this->db->bind('pesan_tolak', htmlspecialchars($data['pesan_tolak']));
+        return $this->db->execute();
+    }
 }

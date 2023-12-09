@@ -81,8 +81,7 @@
                                         <button type="submit" class="btn btn-primary" name="status"
                                             value="Disetujui">Terima</button>
 
-                                        <button type="submit" class="btn btn-danger" name="status"
-                                            value="Ditolak">Tolak</button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolakPeminjaman<?= $peminjaman['id_peminjaman'] ?>">Tolak</button>
                                     </form>
                                 </td>
                             </tr>
@@ -90,6 +89,31 @@
                     } ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tolak Peminjaman -->
+<?php foreach($data['peminjaman'] as $pesanTolak) ?>
+<div class="modal fade" id="tolakPeminjaman<?= $pesanTolak['id_peminjaman'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Berikan Pesan Tolak Peminjaman</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= BASEURL2 ?>/admin/tolakPinjam" method="POST">
+                    <input type="hidden" name="id_pinjam" value="<?= $pesanTolak['id_peminjaman'] ?>">
+                    <input type="hidden" name="status" value="Ditolak">
+                    <label for="pesanTolak">Pesan Penolakan</label>
+                    <textarea name="pesan_tolak" id="pesanTolak" class="form-control" cols="30" rows="5"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-danger">Tolak</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

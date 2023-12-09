@@ -90,4 +90,11 @@ class Admin extends Controller {
 
         header('Location: ' . BASEURL2 . '/admin/inventarisir');
     }
+
+    // method pesan tolak peminjaman
+    public function tolakPinjam() {
+        $this->model('Admin_model')->tolakPeminjaman($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin');
+    }
 }
