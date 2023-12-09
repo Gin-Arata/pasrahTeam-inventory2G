@@ -1,0 +1,37 @@
+
+/* Setting navbar */
+.navbar-home {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+    background-color: #E4E9F7;
+    width: 100%;
+    height: 10vh;
+    color: #294172;
+}
+
+/* Setting h1 Navbar */
+.navbar-home h1 {
+    font-weight: bold;
+    margin-left: 2.3%;
+    font-size: 2.5rem;
+}
+
+/* Setting navbar mobile */
+@media screen and (max-width: 768px) {
+    .navbar-home {
+        display: flex;
+        align-items: center;
+        margin-left: 0%;
+        background-color: #E4E9F7;
+        width: 100%;
+        height: 10vh;
+        color: #294172;
+    }
+
+    .navbar-home h1 {
+        margin-left: 2.3%;
+        font-size: 2.5rem;
+    }
+}

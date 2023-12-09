@@ -1,8 +1,10 @@
 <div id="daftarBarang">
-    <h1 class="mb-3 mt-2">Daftar Barang</h1>
+    <div class="navbar-home">
+        <h1>Daftar Barang</h1>
+    </div>
 
     <div class="tabelBarang table-responsive">
-        <a href="<?= BASEURL2; ?>/admin/inventarisir" class="btn btn-primary mb-3">Tambah Barang</a>
+        <!-- <a href="<?= BASEURL2; ?>/admin/inventarisir" class="btn btn-primary mb-3">Tambah Barang</a> -->
         <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
@@ -76,7 +78,8 @@
                 <form action="<?= BASEURL2 ?>/admin/editBarang" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <label for="namaBarang">Nama Barang</label>
-                        <input type="text" name="edit_nama" class="form-control" id="namaBarang" value="<?= $modalEdit['nama_barang'] ?>">
+                        <input type="text" name="edit_nama" class="form-control" id="namaBarang"
+                            value="<?= $modalEdit['nama_barang'] ?>">
 
                         <label for="kodeBarang">Kode Barang</label>
                         <input type="text" class="form-control" id="kodeBarang" value="<?= $modalEdit['kode_barang'] ?>"
@@ -87,7 +90,8 @@
                             value="<?= $modalEdit['maintainer_barang'] ?>">
 
                         <label for="jmlBarang">Jumlah Barang</label>
-                        <input type="text" name="edit_jumlah" class="form-control" id="jmlBarang" value="<?= $modalEdit['jumlah_barang'] ?>">
+                        <input type="text" name="edit_jumlah" class="form-control" id="jmlBarang"
+                            value="<?= $modalEdit['jumlah_barang'] ?>">
 
                         <label for="asalBarang">Asal Barang</label>
                         <input type="text" class="form-control" id="asalBarang" value="<?= $modalEdit['asal_barang'] ?>"

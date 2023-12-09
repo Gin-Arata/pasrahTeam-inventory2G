@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminInventarisir.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminBarang.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminUser.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminSettingNavbar.css">
     <!-- JS Fontawesome -->
     <script src="https://kit.fontawesome.com/b450899c31.js" crossorigin="anonymous"     ></script>
 </head>
@@ -35,7 +36,7 @@
             </a>
             <a href="<?= BASEURL2 ?>/admin/inventarisir">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/add-file.png" alt="Add barang Logo">
-                    <p>Inventarisir</p>
+                    <p>Tambah Barang</p>
                 </div>
             </a>
             <a href="<?= BASEURL2 ?>/admin/barang">
