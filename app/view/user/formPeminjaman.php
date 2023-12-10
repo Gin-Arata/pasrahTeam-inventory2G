@@ -16,7 +16,7 @@
                                 <label class="mb-0 me-2">Nama Peminjam</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control input-set" id="NIP/NIM" placeholder="ex : 1234567890" required>
+                                <input style="color: white; background-color: #838C96;" type="text" class="form-control input-set" id="NIP/NIM" value="" disabled>
                             </div>
                             <!-- </div> -->
                         </div>
@@ -26,7 +26,7 @@
                                 <label class="mb-0 me-2">NIP/NIM</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control input-set" id="NIP/NIM" placeholder="ex : 1234567890" required>
+                                <input style="color: white; background-color: #838C96;" type="text" class="form-control input-set" id="NIP/NIM" disabled>
                             </div>
                         </div>
                         <div class="input-group mb-3 d-flex align-items-center justify-content-left">
@@ -35,13 +35,13 @@
                                 <label class=" mb-0 me-2">Mulai pinjam</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="date" class="form-control input-set me-2" placeholder="Username" aria-label="Username">
+                                <input type="date" class="form-control input-set me-2" aria-label="Username">
                             </div>
                             <div class="col-sm-0">
                                 <label class="mb-0 me-2 ms-6">Sampai</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="date" class="form-control input-set" placeholder="Server" aria-label="Server">
+                                <input type="date" class="form-control input-set" aria-label="Server">
                             </div>
                         </div>
                         <div class="input-group mb-3 d-flex align-items-center justify-content-left">
@@ -50,7 +50,14 @@
                                 <label class="mb-0 me-2">Item yang dipinjam</label>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control input-set" id="NIP/NIM" placeholder="ex : 1234567890" required>
+                                <input style="color: white; background-color: #838C96;" type="text" class="form-control input-set" value="<?php 
+                                for($i = 0; $i < count($data['selectedBarang']); $i++){
+                                    echo $data['selectedBarang'][$i][0]['nama_barang'];
+                                    if($i != count($data['selectedBarang'])-1){
+                                        echo ", ";
+                                    }
+                                }
+                                ?>" disabled>
                             </div>
                         </div>
                         <div class="input-group mb-3 d-flex align-items-center justify-content-left">
@@ -60,7 +67,7 @@
                             </div>
                             <div class="col-md-4">
                                 <textarea type="text" class="form-control input-set" id="NIP/NIM" style="outline: none;
-                            border-color: #838C96; background-color: #838C96; color: white;" required></textarea>
+                            border-color: #838C96; background-color: #838C96; color: white;" cols="30" rows="5" required></textarea>
                             </div>
                         </div>
                     </div>

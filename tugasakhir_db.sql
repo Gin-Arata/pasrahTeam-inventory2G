@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2023 pada 17.58
+-- Waktu pembuatan: 10 Des 2023 pada 12.06
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -39,7 +39,8 @@ CREATE TABLE `asal_barang` (
 INSERT INTO `asal_barang` (`id_asal`, `asal_barang`) VALUES
 (1, 'Hibah'),
 (2, 'Pembelian'),
-(3, 'Pemberian Ortu');
+(3, 'Pemberian Ortu'),
+(4, 'Pemberian Menteri Pendidikan');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,14 @@ CREATE TABLE `barang` (
   `gambar_barang` longtext NOT NULL,
   `id_asal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `kode_barang`, `maintainer_barang`, `jumlah_barang`, `keterangan_barang`, `gambar_barang`, `id_asal`) VALUES
+(21, 'Keyboard', 'M3421', 'Edooo', 20, 'Keyboard dalam kondisi bagus', 'OIP.jpg', 1),
+(23, 'Kursi', 'K23122', 'Agus Radit', 30, 'Semua kondisi kursi dalam keadaan bagus', 'OIG.jfif', 1);
 
 -- --------------------------------------------------------
 
@@ -91,6 +100,17 @@ CREATE TABLE `user` (
   `level` enum('admin','user') NOT NULL,
   `profil_user` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama_user`, `nomor_induk`, `email_user`, `password_user`, `level`, `profil_user`) VALUES
+(8, 'Gaco Razan Kamil', '2241720091', 'gacorazan3@outlook.com', '25d55ad283aa400af464c76d713c07ad', 'user', ''),
+(10, 'Muzzarino Khaira Akbarr', '2241720001', 'akbar@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'user', ''),
+(11, 'Hana', '2241720192', 'hana@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'user', ''),
+(13, 'user', 'user', 'testing@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'user', ''),
+(14, 'admin', 'admin', 'testing@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -131,13 +151,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `asal_barang`
 --
 ALTER TABLE `asal_barang`
-  MODIFY `id_asal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_asal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
@@ -149,7 +169,7 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
