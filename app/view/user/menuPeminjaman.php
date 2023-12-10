@@ -15,23 +15,46 @@
                     <table id="tabelPilihBarang" class="table table-striped mt-3" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>Usia</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>Pilihan</th>
+                                <th>No.</th>
+                                <th>Gambar Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Kode Barang</th>
+                                <th>Jumlah Barang</th>
+                                <th>Keterangan Barang</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><?php echo 'ApA'; ?></td>
-                                <td><?php echo 'APA'; ?></td>
-                                <td><?php echo 'ApA'; ?></td>
-                                <td><?php echo 'ApA'; ?></td>
-                                <td><?php echo 'ApA'; ?></td>
-                                <td><input type="checkbox" id=".." name=".." value=".."></td>
-                            </tr>
+                            <?php
+                            $no = 1;
+                            foreach ($data['barang'] as $barang) {
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?= $no; ?>
+                                    </td>
+                                    <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang" width="100px"></td>
+                                    <td>
+                                        <?= $barang['nama_barang']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $barang['kode_barang']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $barang['jumlah_barang'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $barang['keterangan_barang'] ?>
+                                    </td>
+                                    <td>
+                                        <!-- <a class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#modalEditBarang<?= $barang['id_barang'] ?>">Ubah</a>
+                                        <a href="<?= BASEURL2 ?>/admin/hapusBarang/<?= $barang['id_barang'] ?>" class="btn btn-danger">Hapus</a> -->
+                                        <input type="checkbox" id=".." name=".." value="..">
+                                    </td>
+                                </tr>
+                            <?php
+                                $no++;
+                            } ?>
                         </tbody>
                     </table>
                 </div>
