@@ -13,15 +13,15 @@
     <div class="background-web"></div>
     <div class=" container">
         <!-- <div class="form-title">LOG IN</div> -->
-        <form action="" method="POST">
+        <form action="<?= BASEURL2;?>/Login/prosesLogin" method="POST">
             <h3 id="log">LOG IN</h3>
             <label>NIP/NIM</label>
             <div class="form-group form-field">
-                <input type="text" class="form-control" id="NIP/NIM" placeholder="ex : 1234567890" required>
+                <input type="text" name="nim" class="form-control" id="NIP/NIM" placeholder="ex : 1234567890" required>
             </div>
             <label>PASSWORD</label>
             <div class="form-group form-field">
-                <input type="password" class="form-control" id="password" placeholder="ex : polinemajos!" required>
+                <input type="password" name="password_user" class="form-control" id="password" placeholder="ex : polinemajos!" required>
             </div>
             <div class="form-group form-field">
                 <input type="submit" class="btn btn-primary btn-block" value="Login" title="Login Now">
