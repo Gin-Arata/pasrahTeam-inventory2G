@@ -43,9 +43,9 @@
       <li class="<?php echo $currentPage === 'Peminjaman' ? 'active' : ''; ?>">
         <a href="<?= BASEURL2 ?>/user/menuPeminjaman">
           <i class=' bx bx-plus-circle'></i>
-      <span class="links_name">Peminjaman</span>
-      </a>
-      <span class="tooltip">Pengajuan Peminjaman</span>
+          <span class="links_name">Peminjaman</span>
+        </a>
+        <span class="tooltip">Pengajuan Peminjaman</span>
       </li>
 
       <li class="<?php echo $currentPage === 'Pengembalian' ? 'active' : ''; ?>">
@@ -71,14 +71,16 @@
         </a>
         <span class="tooltip">User</span>
       </li>
-      <li class="Logout">
-        <input type="submit" class="btn btn-primary btn-block" value="Logout" title="Logout">
-        <i class='bx bx-log-out' id=log_out></i>
-      </li>
-      </ul>
-    </div>
-    <section class="home-section">
-      <a href="<?= BASEURL2 ?>/user/index">
-        <div class="text">INVENTARIS JTI POLINEMA</div>
+      <a href="<?= BASEURL2 ?>/logout" style="text-decoration: none;">
+        <li class="Logout">
+          <input type="submit" class="btn btn-primary btn-block" value="Logout">
+          <i class='bx bx-log-out' id=log_out></i>
+        </li>
       </a>
-    </section>
+    </ul>
+  </div>
+  <section class="home-section">
+    <a href="<?= BASEURL2 ?>/user/index">
+      <div class="text">INVENTARIS JTI POLINEMA</div>
+    </a>
+  </section>
