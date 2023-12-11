@@ -54,7 +54,7 @@
                             ?>
                             <tr>
                                 <td>
-                                    <?= $no ?>
+                                    <?= $no++; ?>
                                 </td>
                                 <td>
                                     <?= $peminjaman['nama_user'] ?>
@@ -86,7 +86,7 @@
                                 </td>
                             </tr>
                         <?php }
-                    $no++;} ?>
+                    } ?>
                 </tbody>
             </table>
         </div>

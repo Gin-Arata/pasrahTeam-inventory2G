@@ -75,11 +75,38 @@ class User extends Controller
 
     public function menuPengembalian()
     {
-        $this->view('template/headerUser');
-        $this->view('user/menuPengembalian');
-        $this->view('template/footerUser');
+        $data['tablePeminjaman'] = $this->model('User_model')->getAllPeminjamanById($_SESSION['idUser']);
 
+        $this->view('template/headerUser');
+        $this->view('user/menuPengembalian', $data);
+        $this->view('template/footerUser');
     }
+
+    public function prosesPengembalian() {
+        for($i = 0; $i < count($_POST['idPeminjaman']); $i++) {
+            $data[$i] = [
+                'idPeminjaman' => $_POST['idPeminjaman'][$i],
+                'status' => 'Dikembalikan'
+            ];
+
+            $this->model('User_model')->updatePeminjamanStatus($data[$i]);
+
+            $dataBarang[$i] = $this->model('User_model')->getAllBarangByIdPeminjaman($data[$i]);
+
+            $dataBarang[$i] = [
+                'id_barang' => $dataBarang[$i][0]['id_barang'],
+                'jumlah_dipinjam' => $dataBarang[$i][0]['jumlah_dipinjam']
+            ];
+
+            if($this->model('User_model')->updateJumlahBarang($dataBarang[$i]) > 0) {
+                Flasher::setFlash('Pengembalian', 'Berhasil', 'dilakukan!', 'success');
+            } else {
+                Flasher::setFlash('Pengembalian', 'Gagal', 'dilakukan!', 'danger');
+            }
+        }
+        header('Location: ' . BASEURL2 . '/user/menuPengembalian');
+    }
+
     public function menuHistory()
     {
         $data['peminjaman'] = $this->model('User_model')->getAllPeminjaman();
