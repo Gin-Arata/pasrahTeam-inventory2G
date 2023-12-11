@@ -19,6 +19,7 @@
         <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
+                    <th>No.</th>
                     <th>Tanggal Pinjam</th>
                     <th>Tanggal Kembali</th>
                     <th>Kode Barang</th>
@@ -29,8 +30,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data['peminjaman'] as $peminjaman) { ?>
+                <?php $no = 1; foreach ($data['peminjaman'] as $peminjaman) { ?>
                     <tr>
+                        <td><?= $no++; ?></td>
                         <td>
                             <?= $peminjaman['waktu_pinjam']; ?>
                         </td>
