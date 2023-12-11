@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Secular One', sans-serif;
+}
+
+body {
+    background: url("img/gedungJTI.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(10px);
+}
+
+
+.Title {
+    font-size: 35px;
+    font-weight: 200;
+    border-radius: 10px 10px 0 0;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 650px;
+    border-radius: 20px;
+    font-family: 'Secular One', sans-serif;
+}
+
+
+/*  tombol */
+input[type="reset"] {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    border: none;
+    width: 200px;
+    margin-bottom: 45px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #E5B300;
+    border-radius: 40px;
+    font-family: 'secular one';
+
+    margin-left: 50%;
+
+}
+
+input[type="logout"] {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    border: none;
+    width: 200px;
+    margin-bottom: 45px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #E5B300;
+    border-radius: 40px;
+    font-family: 'secular one';
+
+    margin-left: 70%;
+}
+
+#resetpass,
+#logout {
+    background: #E5B300;
+    width: 200px;
+}
+
+/* Efek Hover */
+button[type="reset"]:hover,
+button[type="logout"]:hover {
+    transform: scale(1.1);
+}
+
+/* Efek Hover pada tombol Reset Password */
+#resetpass:hover {
+    background: #ffd53d;
+    /* Warna latar belakang yang berbeda saat dihover */
+}
+
+/* Efek Hover pada tombol Log Out */
+#logout:hover {
+    background: #ffd53d
+        /* Warna latar belakang yang berbeda saat dihover */
+}
+
+.profile-container {
+    position: absolute;
+    left: 0;
+    color: #000000;
+    border: none;
+    width: 600px;
+    height: 200px;
+    border-radius: 20px;
+    margin-top: 20%;
+    font-size: 20px;
+    font-family: 'secular one';
+    margin-left: 50%;
+    background-color: #97A3B0;
+}
+
+.profile-info {
+    margin-left: 10%;
+    margin-top: 25px;
+
+}
+
+label {
+    color: #225189;
+}
+
+.avatar {
+    position: relative;
+    margin-left: 20%;
+    margin-top: 20%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
