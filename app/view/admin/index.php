@@ -54,7 +54,7 @@
                             ?>
                             <tr>
                                 <td>
-                                    <?= $no ?>
+                                    <?= $no++; ?>
                                 </td>
                                 <td>
                                     <?= $peminjaman['nama_user'] ?>
@@ -94,7 +94,7 @@
 </div>
 
 <!-- Modal Tolak Peminjaman -->
-<?php foreach($data['peminjaman'] as $pesanTolak) ?>
+<?php foreach($data['peminjaman'] as $pesanTolak) { ?>
 <div class="modal fade" id="tolakPeminjaman<?= $pesanTolak['id_peminjaman'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,3 +119,4 @@
         </div>
     </div>
 </div>
+<?php } ?>

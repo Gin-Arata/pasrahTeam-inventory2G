@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="<?= BASEURL; ?>/css/user/userMenuAjukan.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="home-section" style="background-color:transparent; margin-top:7%; box-shadow:none;">
-    <!-- <div class="wrapper-text">
-        <div class="text">Menu</div>
-    </div> -->
+
     <div class="container">
         <div class="ml-3 mt-4">
             <h3>Ajukan Peminjaman Alat</h3>

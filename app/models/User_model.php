@@ -46,4 +46,45 @@ class User_model {
 
         return $this->db->rowCount();
     }
+
+    // function get all barang by id peminjaman
+    public function getAllBarangByIdPeminjaman($data) {
+        $this->db->query("SELECT * FROM $this->tablePeminjaman JOIN $this->tableBarang ON $this->tablePeminjaman.id_barang = $this->tableBarang.id_barang WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('id_peminjaman', $data['idPeminjaman']);
+        return $this->db->resultSet();
+    }
+
+    // function update jumlah Barang
+    public function updateJumlahBarang($data) {
+        $this->db->query("UPDATE $this->tableBarang SET jumlah_barang = jumlah_barang + :jumlah_dikembalikan WHERE id_barang = :id_barang");
+        $this->db->bind('jumlah_dikembalikan', $data['jumlah_dipinjam']);
+        $this->db->bind('id_barang', $data['id_barang']);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    // function update peminjaman
+    public function updatePeminjamanStatus($data) {
+        $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = :status_pinjam WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('status_pinjam', $data['status']);
+        $this->db->bind('id_peminjaman', $data['idPeminjaman']);
+        $this->db->execute();
+    }
+
+    // function get all peminjaman by id
+    public function getAllPeminjamanById($id_user) {
+        $this->db->query("SELECT * FROM $this->tablePeminjaman JOIN $this->tableBarang ON $this->tablePeminjaman.id_barang = $this->tableBarang.id_barang WHERE id_user = :id_user AND status_pinjam = 'Disetujui'");
+        $this->db->bind('id_user', $id_user);
+        return $this->db->resultSet();
+    }
+
+    // function proses pengembalian
+   public function prosesPengembalian($id_peminjaman) {
+        $this->db->query("UPDATE $this->tablePeminjaman SET status_pinjam = 'Selesai' WHERE id_peminjaman = :id_peminjaman");
+        $this->db->bind('id_peminjaman', $id_peminjaman);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+   } 
 }
