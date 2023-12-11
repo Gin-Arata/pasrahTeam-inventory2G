@@ -46,4 +46,20 @@
                 }
             });
         </script>
+
+        <script>
+            document.getElementById('logout').onclick = function () {
+                // Tambahkan konfirmasi untuk logout
+                var confirmLogout = confirm("Are you sure you want to logout?");
+
+                if (confirmLogout) {
+                    window.location.href = "login.php";
+                }
+            };
+
+            document.getElementById('resetpass').onclick = function () {
+                // Tambahkan konfirmasi untuk reset password
+                window.location.href = "forgot-password.php";
+            };
+        </script>
 </html>
