@@ -2,52 +2,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
 
 
-<div class="container">
+<div class="container mt-5">
     <h1>Histori Peminjaman</h1>
 
     <div class="profile-container">
         <p>NIM:
-            <?php echo $nim; ?>
+            <?= $_SESSION['userNim'] ?>
         </p>
         <p>Nama:
-            <?php echo $nama; ?>
+            <?= $_SESSION['userName'] ?>
         </p>
 
     </div>
 
-    <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Tanggal Pinjam</th>
-                <th>Tanggal Kembali</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Jumlah Pinjam</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data['peminjaman'] as $peminjaman) { ?>
+    <div class="table-responsive">
+        <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
+            <thead>
                 <tr>
-                    <td>
-                        <?= $peminjaman['waktu_pinjam']; ?>
-                    </td>
-                    <td>
-                        <?= $peminjaman['waktu_pengembalian']; ?>
-                    </td>
-                    <?php foreach ($data['barang'] as $barang) { ?>
+                    <th>Tanggal Pinjam</th>
+                    <th>Tanggal Kembali</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Pinjam</th>
+                    <th>Status Pinjam</th>
+                    <th>Pesan Penolakan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data['peminjaman'] as $peminjaman) { ?>
+                    <tr>
                         <td>
-                            <?= $barang['kode_barang']; ?>
+                            <?= $peminjaman['waktu_pinjam']; ?>
                         </td>
                         <td>
-                            <?= $barang['nama_barang']; ?>
+                            <?= $peminjaman['waktu_pengembalian']; ?>
+                        </td>
+                        <td>
+                            <?= $peminjaman['kode_barang']; ?>
+                        </td>
+                        <td>
+                            <?= $peminjaman['nama_barang']; ?>
                         </td>
                         <td>
                             <?= $peminjaman['jumlah_dipinjam']; ?>
                         </td>
-                    <?php } ?>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+                        <td>
+                            <?= $peminjaman['status_pinjam'] ?>
+                        </td>
+                        <td>
+                            <?= $peminjaman['pesan_penolakan'] ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 <form>
