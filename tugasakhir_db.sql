@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Des 2023 pada 12.06
+-- Waktu pembuatan: 11 Des 2023 pada 07.11
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -40,7 +40,8 @@ INSERT INTO `asal_barang` (`id_asal`, `asal_barang`) VALUES
 (1, 'Hibah'),
 (2, 'Pembelian'),
 (3, 'Pemberian Ortu'),
-(4, 'Pemberian Menteri Pendidikan');
+(4, 'Pemberian Menteri Pendidikan'),
+(5, 'Test');
 
 -- --------------------------------------------------------
 
@@ -64,8 +65,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `kode_barang`, `maintainer_barang`, `jumlah_barang`, `keterangan_barang`, `gambar_barang`, `id_asal`) VALUES
-(21, 'Keyboard', 'M3421', 'Edooo', 20, 'Keyboard dalam kondisi bagus', 'OIP.jpg', 1),
-(23, 'Kursi', 'K23122', 'Agus Radit', 30, 'Semua kondisi kursi dalam keadaan bagus', 'OIG.jfif', 1);
+(21, 'Keyboard', 'M3421', 'Edooo', 3, 'Keyboard dalam kondisi bagus', 'OIP.jpg', 1),
+(23, 'Kursi', 'K23122', 'Agus Radit', 5, 'Semua kondisi kursi dalam keadaan bagus', 'OIG.jfif', 1);
 
 -- --------------------------------------------------------
 
@@ -81,9 +82,31 @@ CREATE TABLE `peminjaman` (
   `waktu_pengembalian` date NOT NULL,
   `jumlah_dipinjam` int(11) NOT NULL,
   `keterangan_pinjam` text NOT NULL,
-  `status_pinjam` enum('Disetujui','Ditolak','Proses') NOT NULL,
+  `status_pinjam` enum('Disetujui','Ditolak','Proses','Dikembalikan') NOT NULL DEFAULT 'Proses',
   `pesan_penolakan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id_peminjaman`, `id_user`, `id_barang`, `waktu_pinjam`, `waktu_pengembalian`, `jumlah_dipinjam`, `keterangan_pinjam`, `status_pinjam`, `pesan_penolakan`) VALUES
+(11, 13, 21, '2023-12-11', '2023-12-13', 2, 'Testing', 'Ditolak', 'Apalo'),
+(12, 13, 23, '2023-12-11', '2023-12-13', 2, 'Testing', 'Ditolak', 'Kenapa ditolak?\r\n'),
+(13, 13, 21, '2023-12-11', '2023-12-13', 1, 'Untuk keperluan kelas', 'Dikembalikan', ''),
+(14, 13, 23, '2023-12-11', '2023-12-13', 1, 'Untuk keperluan kelas', 'Dikembalikan', ''),
+(15, 13, 21, '2023-12-11', '2023-12-13', 3, 'Keperluan kampus', 'Dikembalikan', ''),
+(16, 13, 23, '2023-12-11', '2023-12-13', 3, 'Keperluan kampus', 'Ditolak', 'Alasan kurang lengkap'),
+(17, 13, 21, '2023-12-11', '2023-12-13', 1, 'test', 'Dikembalikan', ''),
+(18, 13, 23, '2023-12-11', '2023-12-13', 1, 'test', 'Dikembalikan', ''),
+(19, 13, 23, '0000-00-00', '0000-00-00', 1, 'te', 'Dikembalikan', ''),
+(20, 13, 23, '0000-00-00', '0000-00-00', 1, 'test', 'Dikembalikan', ''),
+(21, 13, 23, '0000-00-00', '0000-00-00', 1, 'test', 'Dikembalikan', ''),
+(22, 13, 21, '0000-00-00', '0000-00-00', 2, 'Test', 'Dikembalikan', ''),
+(23, 13, 21, '2023-12-11', '2023-12-12', 0, 'Test', 'Disetujui', ''),
+(24, 13, 23, '0000-00-00', '0000-00-00', 1, 'test', 'Disetujui', ''),
+(25, 13, 21, '0000-00-00', '0000-00-00', 1, 'test', 'Disetujui', ''),
+(26, 13, 21, '2023-12-11', '2023-12-14', 1, 'test', 'Disetujui', '');
 
 -- --------------------------------------------------------
 
@@ -110,7 +133,8 @@ INSERT INTO `user` (`id_user`, `nama_user`, `nomor_induk`, `email_user`, `passwo
 (10, 'Muzzarino Khaira Akbarr', '2241720001', 'akbar@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'user', ''),
 (11, 'Hana', '2241720192', 'hana@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'user', ''),
 (13, 'user', 'user', 'testing@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'user', ''),
-(14, 'admin', 'admin', 'testing@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', '');
+(14, 'admin', 'admin', 'testing@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', ''),
+(15, 'Test', '2241720056', 'testing@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'user', '');
 
 --
 -- Indexes for dumped tables
@@ -151,25 +175,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `asal_barang`
 --
 ALTER TABLE `asal_barang`
-  MODIFY `id_asal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_asal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
