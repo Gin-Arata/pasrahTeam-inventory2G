@@ -109,8 +109,18 @@ class User extends Controller
 
     public function menuHistory()
     {
+        $data['peminjaman'] = $this->model('User_model')->getAllPeminjamanByIdUser($_SESSION['idUser']);
+
         $this->view('template/headerUser');
-        $this->view('user/menuHistory');
+        $this->view('user/menuHistory', $data);
+        $this->view('template/footerUser');
+    }
+
+    public function menuAkunUser() {
+        // $data['user'] = $this->model('User_model')->getUserById($_SESSION['idUser']);
+
+        $this->view('template/headerUser');
+        $this->view('user/menuAkun');
         $this->view('template/footerUser');
     }
 

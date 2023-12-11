@@ -18,6 +18,7 @@
 <!-- Script Instansiasi Data Table -->
 <script>
     new DataTable('#tabelPilihBarang');
+    new DataTable('#daftarBarangTabel');
 </script>
 
 <script>
