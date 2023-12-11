@@ -5,6 +5,9 @@ if(isset($_SESSION['userRole'])){
         header('Location: '.BASEURL2.'/user');
         exit;
     }
+} else {
+    header('Location: '.BASEURL2.'/login');
+    exit;
 }
 
 class Admin extends Controller

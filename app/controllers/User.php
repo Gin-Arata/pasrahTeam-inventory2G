@@ -5,6 +5,9 @@ if (isset($_SESSION['userRole'])) {
         header('Location: ' . BASEURL2 . '/admin');
         exit;
     }
+} else {
+    header('Location: ' . BASEURL2 . '/login');
+    exit;
 }
 class User extends Controller
 {
@@ -27,8 +30,8 @@ class User extends Controller
     {
         for ($i = 0; $i < count($_POST['idBarang']); $i++) {
             $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($_POST['idBarang'][$i]);
+            $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam'][$i];
         }
-
 
         $this->view('template/headerUser');
         $this->view('user/formPeminjaman', $data);

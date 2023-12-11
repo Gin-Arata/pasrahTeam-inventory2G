@@ -18,6 +18,7 @@
                             <th>Maintainer Barang</th>
                             <th>Stok Barang</th>
                             <th>Keterangan Barang</th>
+                            <th>Jumlah Yang Dipinjam</th>
                             <th>Pilihan</th>
                         </tr>
                     </thead>
@@ -47,6 +48,9 @@
                                     <?= $rowBarang['keterangan_barang'] ?>
                                 </td>
                                 <td>
+                                    <input type="number" class="form-control" name="jumlah_dipinjam[]">
+                                </td>
+                                <td class="d-flex justify-content-center">
                                     <input class="form-check-input" type="checkbox" name="idBarang[]"
                                         value="<?= $rowBarang['id_barang'] ?>">
                                 </td>

@@ -25,6 +25,7 @@ class Login extends Controller
         if ($data['userData']['password_user'] == $hashedPassInput) {
             $_SESSION['idUser'] = $data['userData']['id_user'];
             $_SESSION['userName'] = $data['userData']['nama_user'];
+            $_SESSION['userNim'] = $data['userData']['nomor_induk'];
             $_SESSION['userRole'] = $data['userData']['level'];
 
             if ($data['userData']['level'] == 'admin') {
