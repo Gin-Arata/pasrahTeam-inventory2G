@@ -209,6 +209,11 @@ class Admin_model
         $this->db->bind('id_peminjaman', $data['id_pinjam']);
         $this->db->bind('status_pinjam', $data['status']);
         $this->db->bind('pesan_tolak', htmlspecialchars($data['pesan_tolak']));
-        return $this->db->execute();
+        $this->db->execute();
+
+        $this->db->query("UPDATE $this->tableBarang SET jumlah_barang = jumlah_barang + :jumlah_dipinjam WHERE id_barang = :id_barang");
+        $this->db->bind('jumlah_dipinjam', $data['jumlah_dipinjam']);
+        $this->db->bind('id_barang', $data['id_barang']);
+        $this->db->execute();
     }
 }
