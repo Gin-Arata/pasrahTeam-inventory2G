@@ -106,6 +106,8 @@
                 <form action="<?= BASEURL2 ?>/admin/tolakPinjam" method="POST">
                     <input type="hidden" name="id_pinjam" value="<?= $pesanTolak['id_peminjaman'] ?>">
                     <input type="hidden" name="status" value="Ditolak">
+                    <input type="hidden" name="jumlah_dipinjam" value="<?= $pesanTolak['jumlah_dipinjam'] ?>">
+                    <input type="hidden" name="id_barang" value="<?= $pesanTolak['id_barang'] ?>">
                     <label for="pesanTolak">Pesan Penolakan</label>
                     <textarea name="pesan_tolak" id="pesanTolak" class="form-control" cols="30" rows="5"></textarea>
             </div>
