@@ -114,5 +114,13 @@ class User extends Controller
         $this->view('template/footerUser');
     }
 
+    public function menuAkunUser() {
+        // $data['user'] = $this->model('User_model')->getUserById($_SESSION['idUser']);
+
+        $this->view('template/headerUser');
+        $this->view('user/menuAkun');
+        $this->view('template/footerUser');
+    }
+
 
 }
