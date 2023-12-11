@@ -82,8 +82,12 @@ class User extends Controller
     }
     public function menuHistory()
     {
+        $data['peminjaman'] = $this->model('User_model')->getAllPeminjaman();
+        $data['barang'] = $this->model('User_model')->getAllBarang();
+        //$data['user'] = $this->model('User_model')->getAllUser();
+
         $this->view('template/headerUser');
-        $this->view('user/menuHistory');
+        $this->view('user/menuHistory', $data);
         $this->view('template/footerUser');
     }
 
