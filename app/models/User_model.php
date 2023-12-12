@@ -33,6 +33,14 @@ class User_model
         return $this->db->resultSet();
     }
 
+    // Get user by id
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->tableUser . ' WHERE id_user=:id_user');
+        $this->db->bind('id_user', $id);
+        return $this->db->single();
+    }
+
     // method insert peminjaman berdasarkan input id barang
     public function insertPeminjaman($data)
     {

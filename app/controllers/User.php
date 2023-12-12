@@ -117,10 +117,10 @@ class User extends Controller
     }
 
     public function menuAkunUser() {
-        // $data['user'] = $this->model('User_model')->getUserById($_SESSION['idUser']);
+        $data['user'] = $this->model('User_model')->getUserById($_SESSION['idUser']);
 
         $this->view('template/headerUser');
-        $this->view('user/menuAkun');
+        $this->view('user/menuAkun', $data);
         $this->view('template/footerUser');
     }
 
