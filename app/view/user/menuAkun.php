@@ -7,23 +7,22 @@
 
     <form>
         <div class="container">
-
             <div class="profile-container">
                 <div class="profile-info">
                     <label for="nim">NIM:</label>
                     <div class="hidden-textbox">
-                        1234567890
+                        <?= $data['user']['nomor_induk'] ?>
                     </div>
 
                     <label for="nama">Nama:</label>
                     <div class="hidden-textbox">
-                        Maya Fatamorgana
+                        <?= $data['user']['nama_user'] ?>
                     </div>
                 </div>
             </div>
 
 
-            <img src="img/profile.jpg" alt="Avatar" class="avatar">
+            <img src="<?= BASEURL ?>/img/icon/<?= $data['user']['profil_user'] ?>" alt="Avatar" class="avatar">
             <input type="reset" class="btn btn-primary btn-block" id="resetpass" value="Reset Password">
             <input type="logout" class="btn btn-primary btn-block" id="logout" value="Log Out" readonly>
         </div>
