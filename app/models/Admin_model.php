@@ -51,6 +51,18 @@ class Admin_model
         return $this->db->resultSet();
     }
 
+    public function getAllHistory()
+    {
+        $this->db->query("SELECT u.id_user, u.nama_user, SUM(p.jumlah_dipinjam) AS total_pinjam FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang GROUP BY u.nama_user");
+        return $this->db->resultSet();
+    }
+
+    public function getPeminjamanById($id_user) {
+        $this->db->query("SELECT * FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang WHERE p.id_user = :id_user");
+        $this->db->bind('id_user', $id_user);
+        return $this->db->resultSet();
+    }
+
     public function getBarangById($id_barang)
     {
         $this->db->query("SELECT * FROM $this->tableBarang WHERE id_barang = :id_barang");
@@ -82,7 +94,7 @@ class Admin_model
 
     // function edit barang
     public function editBarang($data, $img)
-    {  
+    {
         if ($img['edit_gambar']['name'] != '') {
             // Get the current image file
             $this->db->query("SELECT gambar_barang FROM $this->tableBarang WHERE id_barang = :id_barang");

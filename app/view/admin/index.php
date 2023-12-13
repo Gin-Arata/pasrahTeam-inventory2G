@@ -31,7 +31,7 @@
     <!-- Shortcut Perizinan -->
     <div class="shortcut-perizinan">
         <div class="shortcut-perizinan-content table-responsive">
-            <h3 class="mb-4">Kelola Perizinan</h3>
+            <h3 class="mb-4">Shortcut Perizinan</h3>
             <table id="shortcutPerizinan" class="table table-striped table-responsive" style="width:100%">
                 <thead>
                     <tr>
