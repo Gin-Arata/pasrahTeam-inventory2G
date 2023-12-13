@@ -27,12 +27,20 @@
             "emptyTable": "Tidak ada user yang terdaftar."
         }
     });
+
+    $('#historyBarangTabel').DataTable({
+        "language": {
+            "emptyTable": "Tidak ada history peminjaman barang."
+        }
+    });
 </script>
 
 <script>
     new DataTable('#shortcutPerizinan');
     new DataTable('#daftarBarangTabel');
     new DataTable('#daftarUserTabel');
+    new DataTable('#historyBarangTabel');
+    new DataTable('#detailHistoryTabel')
 </script>
 
 </body>

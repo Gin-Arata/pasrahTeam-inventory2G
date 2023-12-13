@@ -1,59 +1,66 @@
 <div id="daftarUser">
     <div class="navbar-home">
-        <h1>Daftar User</h1>
+        <h1>Inventaris JTI</h1>
     </div>
-    <div class="tabelUser table-responsive">
-        <div class="row mb-0">
-            <div class="col-12">
-                <?php Flasher::flash(); ?>
+
+    <div class="card" style="width: 99%;">
+        <h5 class="card-header" style="background-color: #E4E9F7; color: #294172;">Daftar User</h5>
+        <div class="card-body">
+            <div class="tabelUser table-responsive">
+                <div class="row mb-0">
+                    <div class="col-12">
+                        <?php Flasher::flash(); ?>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
+                    data-bs-target="#userModal">Tambah
+                    User</button>
+                <table id="daftarUserTabel" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama User</th>
+                            <th>Nomor Induk</th>
+                            <th>Email</th>
+                            <th>Level</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Password admin 1234 -->
+                        <?php
+                        $no = 1;
+                        foreach ($data['user'] as $rowUser) { ?>
+                            <tr>
+                                <td>
+                                    <?= $no ?>
+                                </td>
+                                <td>
+                                    <?= $rowUser['nama_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $rowUser['nomor_induk'] ?>
+                                </td>
+                                <td>
+                                    <?= $rowUser['email_user'] ?>
+                                </td>
+                                <td>
+                                    <?= $rowUser['level'] ?>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#editUserModal<?= $rowUser['id_user'] ?>">Ubah</a>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#hapusUser<?= $rowUser['id_user'] ?>">Hapus</button>
+                                </td>
+                            </tr>
+                            <?php $no++;
+                        } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#userModal">Tambah
-            User</button>
-        <table id="daftarUserTabel" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama User</th>
-                    <th>Nomor Induk</th>
-                    <th>Email</th>
-                    <th>Level</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <!-- Password admin 1234 -->
-                <?php
-                $no = 1;
-                foreach ($data['user'] as $rowUser) { ?>
-                    <tr>
-                        <td>
-                            <?= $no ?>
-                        </td>
-                        <td>
-                            <?= $rowUser['nama_user'] ?>
-                        </td>
-                        <td>
-                            <?= $rowUser['nomor_induk'] ?>
-                        </td>
-                        <td>
-                            <?= $rowUser['email_user'] ?>
-                        </td>
-                        <td>
-                            <?= $rowUser['level'] ?>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#editUserModal<?= $rowUser['id_user'] ?>">Ubah</a>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#hapusUser<?= $rowUser['id_user'] ?>">Hapus</button>
-                        </td>
-                    </tr>
-                    <?php $no++;
-                } ?>
-            </tbody>
-        </table>
     </div>
 
 
@@ -158,7 +165,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                     </form>
                 </div>
@@ -180,9 +187,9 @@
                         Apakah Anda Yakin Ingin Menghapus?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <a href="<?= BASEURL2 ?>/admin/hapusUser/<?= $hapusModal['id_user'] ?>"
                             class="btn btn-danger">Hapus</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>

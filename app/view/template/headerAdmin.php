@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminInventarisir.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminBarang.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminUser.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminHistoryBarang.css">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin/adminSettingNavbar.css">
     <!-- JS Fontawesome -->
     <script src="https://kit.fontawesome.com/b450899c31.js" crossorigin="anonymous"     ></script>
@@ -47,6 +48,11 @@
             <a href="<?= BASEURL2 ?>/admin/user">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/group.png" alt="Home Logo" width="25">
                     <p>Daftar User</p>
+                </div>
+            </a>
+            <a href="<?= BASEURL2 ?>/admin/history">
+                <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/file.png" alt="History Logo">
+                    <p>History Barang</p>
                 </div>
             </a>
         </div>

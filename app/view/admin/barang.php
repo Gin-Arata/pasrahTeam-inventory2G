@@ -1,71 +1,76 @@
 <div id="daftarBarang">
     <div class="navbar-home">
-        <h1>Daftar Barang</h1>
+        <h1>Inventaris JTI</h1>
     </div>
 
-    <div class="tabelBarang table-responsive">
-        <div class="row mb-0">
-            <div class="col-12">
-                <?php Flasher::flash(); ?>
+    <div class="card" style="width: 99%;">
+        <h5 class="card-header" style="background-color: #E4E9F7; color: #294172;">Daftar Barang</h5>
+        <div class="card-body">
+            <div class="tabelBarang table-responsive">
+                <div class="row mb-0">
+                    <div class="col-12">
+                        <?php Flasher::flash(); ?>
+                    </div>
+                </div>
+                <!-- <a href="<?= BASEURL2; ?>/admin/inventarisir" class="btn btn-primary mb-3">Tambah Barang</a> -->
+                <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Gambar Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Kode Barang</th>
+                            <th>Maintainer Barang</th>
+                            <th>Jumlah Barang</th>
+                            <th>Asal Barang</th>
+                            <th>Keterangan Barang</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($data['barang'] as $barang) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $no; ?>
+                                </td>
+                                <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang"
+                                        width="100px"></td>
+                                <td>
+                                    <?= $barang['nama_barang']; ?>
+                                </td>
+                                <td>
+                                    <?= $barang['kode_barang']; ?>
+                                </td>
+                                <td>
+                                    <?= $barang['maintainer_barang']; ?>
+                                </td>
+                                <td>
+                                    <?= $barang['jumlah_barang'] ?>
+                                </td>
+                                <td>
+                                    <?= $barang['asal_barang'] ?>
+                                </td>
+                                <td>
+                                    <?= $barang['keterangan_barang'] ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary mb-1" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditBarang<?= $barang['id_barang'] ?>">Ubah</a>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#hapusBarang<?= $barang['id_barang'] ?>">Hapus</button>
+                                </td>
+                            </tr>
+                            <?php
+                            $no++;
+                        } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <!-- <a href="<?= BASEURL2; ?>/admin/inventarisir" class="btn btn-primary mb-3">Tambah Barang</a> -->
-        <table id="daftarBarangTabel" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Gambar Barang</th>
-                    <th>Nama Barang</th>
-                    <th>Kode Barang</th>
-                    <th>Maintainer Barang</th>
-                    <th>Jumlah Barang</th>
-                    <th>Asal Barang</th>
-                    <th>Keterangan Barang</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                $no = 1;
-                foreach ($data['barang'] as $barang) {
-                    ?>
-                    <tr>
-                        <td>
-                            <?= $no; ?>
-                        </td>
-                        <td><img src="<?= BASEURL ?>/img/barang/<?= $barang['gambar_barang'] ?>" alt="Gambar Barang"
-                                width="100px"></td>
-                        <td>
-                            <?= $barang['nama_barang']; ?>
-                        </td>
-                        <td>
-                            <?= $barang['kode_barang']; ?>
-                        </td>
-                        <td>
-                            <?= $barang['maintainer_barang']; ?>
-                        </td>
-                        <td>
-                            <?= $barang['jumlah_barang'] ?>
-                        </td>
-                        <td>
-                            <?= $barang['asal_barang'] ?>
-                        </td>
-                        <td>
-                            <?= $barang['keterangan_barang'] ?>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary mb-1" data-bs-toggle="modal"
-                                data-bs-target="#modalEditBarang<?= $barang['id_barang'] ?>">Ubah</a>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#hapusBarang<?= $barang['id_barang'] ?>">Hapus</button>
-                        </td>
-                    </tr>
-                    <?php
-                    $no++;
-                } ?>
-            </tbody>
-        </table>
     </div>
 </div>
 
@@ -113,7 +118,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -135,9 +140,9 @@
                     Apakah Anda Yakin Ingin Menghapus?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <a href="<?= BASEURL2 ?>/admin/hapusBarang/<?= $hapusModal['id_barang'] ?>"
                         class="btn btn-danger">Hapus</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>

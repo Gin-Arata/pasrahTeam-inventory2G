@@ -50,6 +50,23 @@ class Admin extends Controller
         $this->view('template/footerAdmin');
     }
 
+    public function history()
+    {
+        $data['history'] = $this->model('Admin_model')->getAllHistory();
+
+        $this->view('template/headerAdmin');
+        $this->view('admin/historyBarang', $data);
+        $this->view('template/footerAdmin');
+    }
+
+    public function detailHistory($id_user) {
+        $data['detailHistory'] = $this->model('Admin_model')->getPeminjamanById($id_user);
+
+        $this->view('template/headerAdmin');
+        $this->view('admin/detailHistory', $data);
+        $this->view('template/footerAdmin');
+    }
+
     // method tambah barang
     public function tambahBarang()
     {

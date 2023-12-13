@@ -1,5 +1,5 @@
 /* Setting center daftar barnag */
-#daftarBarang, #daftarUser {
+#daftarBarang, #daftarUser, #historyBarang, #detailHistory {
     width: 84%;
     margin-left: 16%;
     height: 100vh;
@@ -8,21 +8,14 @@
     align-items: center;
 }
 
-
-/* Setting tabel div */
-#daftarBarang .tabelBarang, #daftarUser .tabelUser {
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    border: solid rgb(216, 216, 216) 1px;
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
-    width: 95%;
-}
-
 /* Setting center daftar mobile */
 @media screen and (max-width: 768px) {
-    #daftarBarang, #daftarUser {
+    #daftarBarang, #daftarUser, #historyBarang, #detailHistory {
         width: 88%;
         margin-left: 12%;
+    }
+
+    #daftarBarang .card {
+        margin-left: 3px;
     }
 }
