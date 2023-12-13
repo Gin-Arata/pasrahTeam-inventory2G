@@ -44,7 +44,7 @@ class User_model
     // method insert peminjaman berdasarkan input id barang
     public function insertPeminjaman($data)
     {
-        $this->db->query("INSERT INTO $this->tablePeminjaman (id_barang, id_user, waktu_pinjam, waktu_pengembalian, jumlah_dipinjam, keterangan_pinjam) VALUES (:id_barang, :id_user, :mulai_pinjam, :batas_pinjam, :jumlah_dipinjam, :alasan_pinjam)");
+        $this->db->query("INSERT INTO $this->tablePeminjaman (id_barang, id_user, waktu_pinjam, waktu_pengembalian, jumlah_dipinjam, keterangan_pinjam, status_pinjam) VALUES (:id_barang, :id_user, :mulai_pinjam, :batas_pinjam, :jumlah_dipinjam, :alasan_pinjam, :status_pinjam)");
 
         $this->db->bind('id_barang', $data['id_barang']);
         $this->db->bind('id_user', $data['id_user']);
@@ -52,6 +52,7 @@ class User_model
         $this->db->bind('batas_pinjam', $data['batas_pinjam']);
         $this->db->bind('jumlah_dipinjam', $data['jumlah_barang']);
         $this->db->bind('alasan_pinjam', $data['alasan_pinjam']);
+        $this->db->bind('status_pinjam', 'Proses');
 
         $this->db->execute();
 
