@@ -51,6 +51,19 @@ class Admin_model
         return $this->db->resultSet();
     }
 
+    public function getPeminjamanByDate() {
+        $this->db->query("SELECT u.id_user, u.nama_user, p.waktu_pinjam, p.waktu_pengembalian, SUM(p.jumlah_dipinjam) AS total_pinjam, p.keterangan_pinjam FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang WHERE p.status_pinjam = 'Proses' GROUP BY u.nama_user, p.waktu_pinjam, p.waktu_pengembalian");
+        return $this->db->resultSet();
+    }
+
+    public function getPeminjamanByDateId($id_user, $tanggalPinjam, $tanggalKembali) {
+        $this->db->query("SELECT * FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang WHERE p.status_pinjam = 'Proses' AND p.id_user = :id_user AND p.waktu_pinjam = :waktu_pinjam AND p.waktu_pengembalian = :waktu_pengembalian");
+        $this->db->bind('id_user', $id_user);
+        $this->db->bind('waktu_pinjam', $tanggalPinjam);
+        $this->db->bind('waktu_pengembalian', $tanggalKembali);
+        return $this->db->resultSet();
+    }
+
     public function getAllHistory()
     {
         $this->db->query("SELECT u.id_user, u.nama_user, SUM(p.jumlah_dipinjam) AS total_pinjam FROM $this->tablePeminjaman as p INNER JOIN $this->tableUser as u ON p.id_user = u.id_user INNER JOIN $this->tableBarang as b ON p.id_barang = b.id_barang GROUP BY u.nama_user");
@@ -227,5 +240,7 @@ class Admin_model
         $this->db->bind('jumlah_dipinjam', $data['jumlah_dipinjam']);
         $this->db->bind('id_barang', $data['id_barang']);
         $this->db->execute();
+
+        return $this->db->rowCount();
     }
 }

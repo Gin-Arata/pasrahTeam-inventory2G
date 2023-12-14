@@ -33,6 +33,12 @@
             "emptyTable": "Tidak ada history peminjaman barang."
         }
     });
+
+    $('#tabelPerizinan').DataTable({
+        "language": {
+            "emptyTable": "Tidak ada peminjaman baru."
+        }
+    })
 </script>
 
 <script>
@@ -40,7 +46,8 @@
     new DataTable('#daftarBarangTabel');
     new DataTable('#daftarUserTabel');
     new DataTable('#historyBarangTabel');
-    new DataTable('#detailHistoryTabel')
+    new DataTable('#detailHistoryTabel');
+    new DataTable('#tabelPerizinan');
 </script>
 
 </body>

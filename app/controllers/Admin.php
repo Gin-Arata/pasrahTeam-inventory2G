@@ -1,12 +1,12 @@
 <?php
 // Prevent user to access this page if not logged in
-if(isset($_SESSION['userRole'])){
-    if($_SESSION['userRole'] == 'user'){
-        header('Location: '.BASEURL2.'/user');
+if (isset($_SESSION['userRole'])) {
+    if ($_SESSION['userRole'] == 'user') {
+        header('Location: ' . BASEURL2 . '/user');
         exit;
     }
 } else {
-    header('Location: '.BASEURL2.'/login');
+    header('Location: ' . BASEURL2 . '/login');
     exit;
 }
 
@@ -59,7 +59,31 @@ class Admin extends Controller
         $this->view('template/footerAdmin');
     }
 
-    public function detailHistory($id_user) {
+    public function perizinan()
+    {
+        $data['perizinanByDate'] = $this->model('Admin_model')->getPeminjamanByDate();
+
+        $this->view('template/headerAdmin');
+        $this->view('admin/perizinan', $data);
+        $this->view('template/footerAdmin');
+    }
+
+    public function detailPerizinan($id, $tanggalPinjam, $tanggalKembali)
+    {
+        $data['detailPerizinan'] = $this->model('Admin_model')->getPeminjamanByDateId($id, $tanggalPinjam, $tanggalKembali);
+
+        if (empty($data['detailPerizinan'])) {
+            header('Location: ' . BASEURL2 . '/admin/perizinan');
+            exit;
+        } else {
+            $this->view('template/headerAdmin');
+            $this->view('admin/detailPerizinan', $data);
+            $this->view('template/footerAdmin');
+        }
+    }
+
+    public function detailHistory($id_user)
+    {
         $data['detailHistory'] = $this->model('Admin_model')->getPeminjamanById($id_user);
 
         $this->view('template/headerAdmin');
@@ -159,6 +183,14 @@ class Admin extends Controller
         header('Location: ' . BASEURL2 . '/admin');
     }
 
+    // method konfirmasi peminjaman untuk perizinan
+    public function updateStatusPinjamPerizinan()
+    {
+        $this->model('Admin_model')->updateStatusPeminjaman($_POST);
+
+        header('Location: ' . BASEURL2 . '/admin/detailPerizinan/' . $_POST['id_user'] . '/' . $_POST['tanggalPinjam'] . '/' . $_POST['tanggalKembali']);
+    }
+
     // method Tambah asal barang
     public function tambahAsalBarang()
     {
@@ -179,5 +211,17 @@ class Admin extends Controller
         $this->model('Admin_model')->tolakPeminjaman($_POST);
 
         header('Location: ' . BASEURL2 . '/admin');
+    }
+
+    // method pesan tolak perizinan
+    public function tolakPerizinan()
+    {
+        if ($this->model('Admin_model')->tolakPeminjaman($_POST) > 0) {
+            Flasher::setFlash('Peminjaman', 'Berhasil', 'ditolak!', 'success');
+            header('Location: ' . BASEURL2 . '/admin/detailPerizinan/' . $_POST['id_user'] . '/' . $_POST['tanggalPinjam'] . '/' . $_POST['tanggalKembali']);
+        } else {
+            Flasher::setFlash('Peminjaman', 'Gagal', 'ditolak!', 'danger');
+            header('Location: ' . BASEURL2 . '/admin/detailPerizinan/' . $_POST['id_user'] . '/' . $_POST['tanggalPinjam'] . '/' . $_POST['tanggalKembali']);
+        }
     }
 }

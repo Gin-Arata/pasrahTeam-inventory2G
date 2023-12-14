@@ -45,14 +45,19 @@
                     <p>Daftar Barang</p>
                 </div>
             </a>
-            <a href="<?= BASEURL2 ?>/admin/user">
-                <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/group.png" alt="Home Logo" width="25">
-                    <p>Daftar User</p>
+            <a href="<?= BASEURL2 ?>/admin/perizinan">
+                <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/approved.png" alt="Perizinan Logo" width="25">
+                    <p>Perizinan</p>
                 </div>
             </a>
             <a href="<?= BASEURL2 ?>/admin/history">
                 <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/file.png" alt="History Logo">
                     <p>History Barang</p>
+                </div>
+            </a>
+            <a href="<?= BASEURL2 ?>/admin/user">
+                <div class="sidebar-content"><img src="<?= BASEURL ?>/img/icon/group.png" alt="Home Logo" width="25">
+                    <p>Daftar User</p>
                 </div>
             </a>
         </div>

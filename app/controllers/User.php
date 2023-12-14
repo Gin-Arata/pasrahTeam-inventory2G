@@ -38,6 +38,9 @@ class User extends Controller
                 }
             }
         }
+
+        // var_dump($data['jumlahBarang']);
+        // die();
         // for ($i = 0; $i < count($_POST['jumlah_dipinjam']); $i++) {
         //     $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($_POST['idBarang'][$i]);
         // }
@@ -82,8 +85,9 @@ class User extends Controller
         $this->view('template/footerUser');
     }
 
-    public function prosesPengembalian() {
-        for($i = 0; $i < count($_POST['idPeminjaman']); $i++) {
+    public function prosesPengembalian()
+    {
+        for ($i = 0; $i < count($_POST['idPeminjaman']); $i++) {
             $data[$i] = [
                 'idPeminjaman' => $_POST['idPeminjaman'][$i],
                 'status' => 'Dikembalikan'
@@ -98,7 +102,7 @@ class User extends Controller
                 'jumlah_dipinjam' => $dataBarang[$i][0]['jumlah_dipinjam']
             ];
 
-            if($this->model('User_model')->updateJumlahBarang($dataBarang[$i]) > 0) {
+            if ($this->model('User_model')->updateJumlahBarang($dataBarang[$i]) > 0) {
                 Flasher::setFlash('Pengembalian', 'Berhasil', 'dilakukan!', 'success');
             } else {
                 Flasher::setFlash('Pengembalian', 'Gagal', 'dilakukan!', 'danger');
@@ -116,7 +120,8 @@ class User extends Controller
         $this->view('template/footerUser');
     }
 
-    public function menuAkunUser() {
+    public function menuAkunUser()
+    {
         $data['user'] = $this->model('User_model')->getUserById($_SESSION['idUser']);
 
         $this->view('template/headerUser');
