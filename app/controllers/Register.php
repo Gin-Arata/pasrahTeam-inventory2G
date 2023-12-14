@@ -10,7 +10,7 @@ class Register extends Controller {
             Flasher::setFlash('Pendaftaran', 'Berhasil!', 'Silahkan login', 'success');
             header('Location: '.BASEURL2.'/login');
         } else {
-            Flasher::setFlash('Pengembalian', 'Gagal', 'dilakukan!', 'danger');
+            Flasher::setFlash('Pendaftaran', 'Gagal!', 'silahkan daftar kembali', 'danger');
             header('Location: ' . BASEURL2 . '/register');
         }
     }
