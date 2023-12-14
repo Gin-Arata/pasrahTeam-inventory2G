@@ -1,5 +1,5 @@
 /* Setting center daftar barnag */
-#daftarBarang, #daftarUser, #historyBarang, #detailHistory {
+#daftarBarang, #daftarUser, #historyBarang, #detailHistory, #perizinanBarang {
     width: 84%;
     margin-left: 16%;
     height: 100vh;
@@ -10,7 +10,7 @@
 
 /* Setting center daftar mobile */
 @media screen and (max-width: 768px) {
-    #daftarBarang, #daftarUser, #historyBarang, #detailHistory {
+    #daftarBarang, #daftarUser, #historyBarang, #detailHistory, #perizinanBarang {
         width: 88%;
         margin-left: 12%;
     }
