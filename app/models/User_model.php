@@ -66,8 +66,9 @@ class User_model
 
     public function insertUser($data)
     {
-        $this->db->query("INSERT INTO $this->tableUser (nomor_induk, email_user, password_user, level) VALUES (:nomor_induk, :email_user, :password_user, :level)");
+        $this->db->query("INSERT INTO $this->tableUser (nama_user, nomor_induk, email_user, password_user, level) VALUES (:nama_user, :nomor_induk, :email_user, :password_user, :level)");
 
+        $this->db->bind('nama_user', $data['nameUser']);        
         $this->db->bind('nomor_induk', $data['nomorindukreal']);
         $this->db->bind('email_user', $data['emailreal']);
         $this->db->bind('password_user',MD5($data['password']));

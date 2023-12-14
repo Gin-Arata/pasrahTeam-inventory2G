@@ -16,6 +16,10 @@
     <div class="container">
         <form id="Form1" method="POST" action="<?php echo BASEURL;?>">
             <h3>REGISTER</h3>
+            <label>Nama</label>
+            <div class="form-group form-field">
+                <input id="nama_user" type="text" class="form-control" placeholder="ex : Yunila Tati" required>
+            </div>
             <label>NIP/NIM</label>
             <div class="form-group form-field">
                 <input type="text" name="nomorinduk" class="form-control" id="nomor-induk" placeholder="ex : 1234567890" required>
@@ -35,6 +39,7 @@
             <label>Password</label>
             <input type="hidden" name="nomorindukreal" id="nomorindukreal">
             <input type="hidden" name="emailreal" id="emailreal">
+            <input type="hidden" name="nameUser" id="nameUser">
             <div class="form-group form-field">
                 <input type="password" name="password" class="form-control" id="password" placeholder="ex : polinemajos!" required>
             </div>
@@ -61,14 +66,17 @@
             // Ambil nilai dari formulir pertama
             var nomorIndukValue = $('#nomor-induk').val();
             var emailValue = $('#email').val();
+            var namaValue = $('#nama_user').val();
 
             // Simpan nilai dalam variabel JavaScript
             var formData1 = {
                 nomorInduk: nomorIndukValue,
-                email: emailValue
+                email: emailValue,
+                namaUser:namaValue
             };
             $('#nomorindukreal').val(formData1.nomorInduk);
             $('#emailreal').val(formData1.email);
+            $('#nameUser').val(formData1.namaUser);
         });
 </script>
     <footer class="copyright">

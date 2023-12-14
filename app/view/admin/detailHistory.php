@@ -8,7 +8,7 @@
         Back
     </a>
     <div class="card" style="width: 99%;">
-        <h5 class="card-header" style="background-color: #E4E9F7; color: #294172;">Detail History Peminjaman Barang</h5>
+        <h5 class="card-header" style="background-color: #E4E9F7; color: #294172;">Detail History Peminjaman <?= $data['detailHistory'][0]['nama_user'] ?></h5>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="detailHistoryTabel" class="table table-striped" style="width:100%">

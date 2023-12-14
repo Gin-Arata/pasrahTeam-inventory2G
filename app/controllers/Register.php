@@ -1,4 +1,13 @@
 <?php
+if(isset($_SESSION['userRole'])){
+    if($_SESSION['userRole'] == 'user'){
+        header('Location: '.BASEURL2.'/user');
+        exit;
+    } else {
+        header('Location: '.BASEURL2.'/admin');
+        exit;
+    }
+}
 
 class Register extends Controller {
     public function index() {
