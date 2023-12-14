@@ -17,7 +17,3 @@ Back1.onclick = function () {
     Form2.style.left = "450px";
     // progress.style.width = "120px";
 }
-        
-Submit.onclick = function () {
-    alert("Anda berhasil membuat akun");
-}
