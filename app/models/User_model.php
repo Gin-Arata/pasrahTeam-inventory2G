@@ -64,6 +64,23 @@ class User_model
         return $this->db->rowCount();
     }
 
+    public function insertUser($data)
+    {
+        $this->db->query("INSERT INTO $this->tableUser (nomor_induk, email_user, password_user, level) VALUES (:nomor_induk, :email_user, :password_user, :level)");
+
+        $this->db->bind('nomor_induk', $data['nomorindukreal']);
+        $this->db->bind('email_user', $data['emailreal']);
+        $this->db->bind('password_user',MD5($data['password']));
+        $this->db->bind('level', 'user');
+
+        
+
+        $this->db->execute();
+
+
+        return $this->db->rowCount();
+    }
+
 
     // function get all barang by id peminjaman
     public function getAllBarangByIdPeminjaman($data) {
