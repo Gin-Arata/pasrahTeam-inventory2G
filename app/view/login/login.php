@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
 </head>
 
 <body>
     <div class="background-web"></div>
-    <div class=" container">
-        <!-- <div class="form-title">LOG IN</div> -->
+    <div class=" container" style="height: 460px;">
         <div class="row mt-3">
             <div class="col-12">
                 <?php
@@ -21,7 +22,8 @@
                 ?>
             </div>
         </div>
-        <form action="<?= BASEURL2 ?>/login/prosesLogin" method="POST" style="z-index: -1;">
+        <!-- <div class="form-title">LOG IN</div> -->
+        <form action="<?= BASEURL2 ?>/login/prosesLogin" method="POST">
             <h3 id="log">LOG IN</h3>
             <label>NIP/NIM</label>
             <div class="form-group form-field">
