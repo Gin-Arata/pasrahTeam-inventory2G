@@ -65,7 +65,7 @@
       </li>
 
       <li class="<?php echo $currentPage === 'User' ? 'active' : ''; ?>">
-        <a href="menuAkunUser">
+        <a href="<?= BASEURL2 ?>/user/menuAkunUser">
           <i class='bx bx-user'></i>
           <span class="links_name">User</span>
         </a>
