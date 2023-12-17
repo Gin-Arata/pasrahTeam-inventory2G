@@ -28,16 +28,22 @@ class User extends Controller
     }
     public function formPeminjaman()
     {
-        for ($j = 0; $j < count($_POST['idBarang']); $j++) {
-            for ($i = 0; $i < count($_POST['jumlah_dipinjam']); $i++) {
-                if ($_POST['jumlah_dipinjam'][$i] == "") {
-                    continue;
-                } else {
-                    $data['selectedBarang'][$j] = $this->model('User_model')->getBarangById($_POST['idBarang'][$j]);
-                    $data['jumlahBarang'][$j] = $_POST['jumlah_dipinjam'][$i];
-                }
-            }
+        $i = 0;
+        foreach($_POST['idBarang'] as $cek) {
+            $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($cek);
+            $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam_'.$cek];
+            $i++;
         }
+        // for ($j = 0; $j < count($_POST['idBarang']); $j++) {
+        //     for ($i = 0; $i < count($_POST['jumlah_dipinjam']); $i++) {
+        //         if ($_POST['jumlah_dipinjam'][$i] == "") {
+        //             continue;
+        //         } else {
+        //             $data['selectedBarang'][$j] = $this->model('User_model')->getBarangById($_POST['idBarang'][$j]);
+        //             $data['jumlahBarang'][$j] = $_POST['jumlah_dipinjam'][$i];
+        //         }
+        //     }
+        // }
 
         // var_dump($data['jumlahBarang']);
         // die();
