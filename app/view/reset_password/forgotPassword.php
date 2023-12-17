@@ -14,14 +14,19 @@
 <body>
     <div class="bg"></div>
     <div class="container">
-        <form method="post" action="send-password-reset.php">
+        <div class="row mt-2">
+            <div class="col-12">
+                <?php Flasher::flash(); ?>
+            </div>
+        </div>
+        <form method="post" action="<?= BASEURL2 ?>/forgotpass/prosesEmailPass">
             <h1> FORGOT PASSWORD</h1>
             <label for="email"> ENTER YOUR EMAIL</label>
 
             <input type="email" class="form-control" name="email" id="email" placeholder="ex : bungasepatu@gmail.com"
                 required>
             <input type="submit" class="btn btn-primary btn-block" id="Submit" value="Submit" title="Submit">
-            <div class="link">Login <a href="login.php" title="login">Here</a></div>
+            <div class="link">Login <a href="<?= BASEURL2 ?>/login" title="login">Here</a></div>
 
         </form>
         <div class="copyright">

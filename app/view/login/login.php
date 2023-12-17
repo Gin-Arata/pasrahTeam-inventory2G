@@ -15,7 +15,7 @@
 <body>
     <div class="background-web"></div>
     <div class=" container" style="height: 460px;">
-        <div class="row mt-3">
+        <div class="row mt-3" style="z-index: 10;">
             <div class="col-12">
                 <?php
                 Flasher::flash();
@@ -40,7 +40,7 @@
             </div>
             <div class="link">Don't have an account? <a href="<?= BASEURL2; ?>/register" title="Register">Register
                     Now</a></div>
-            <div class="link"><a href="Forgot_Password.php" title="ForgotPassword">Forgot password?</a></div>
+            <div class="link"><a href="<?= BASEURL2 ?>/forgotpass" title="ForgotPassword">Forgot password?</a></div>
         </form>
     </div>
     <footer class="copyright">

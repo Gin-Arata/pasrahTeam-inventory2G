@@ -41,6 +41,25 @@ class User_model
         return $this->db->single();
     }
 
+    // Get user by email
+    public function getUserByEmail($email)
+    {
+        $this->db->query('SELECT * FROM ' . $this->tableUser . ' WHERE email_user=:email_user');
+        $this->db->bind('email_user', $email);
+        return $this->db->single();
+    }
+
+    // User reset pass
+    public function resetPass($id_user, $passConfirm)
+    {
+        $this->db->query("UPDATE $this->tableUser SET password_user = :password_user WHERE id_user = :id_user");
+        $this->db->bind('password_user', MD5($passConfirm));
+        $this->db->bind('id_user', $id_user);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     // method insert peminjaman berdasarkan input id barang
     public function insertPeminjaman($data)
     {
