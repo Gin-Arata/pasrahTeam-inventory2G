@@ -35,10 +35,22 @@ class User extends Controller
         } else {
             $i = 0;
             foreach ($_POST['idBarang'] as $cek) {
-                $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($cek);
-                $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam_' . $cek];
-                $i++;
+                if ($_POST['jumlah_dipinjam_' . $cek] == "") {
+                    header('Location: ' . BASEURL2 . '/user/menuPeminjaman');
+                    Flasher::setFlash('Peminjaman Barang', 'Gagal!', 'Jumlah Barang Belum Diisi', 'danger');
+                } else {
+                    $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($cek);
+                    $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam_' . $cek];
+                    
+                    if($data['selectedBarang'][$i][0]['jumlah_barang'] < $data['jumlahBarang'][$i]) {
+                        header('Location: ' . BASEURL2 . '/user/menuPeminjaman');
+                        Flasher::setFlash('Peminjaman Barang '. $data['selectedBarang'][$i][0]['nama_barang'], 'Gagal!', 'Jumlah Barang yang Dipinjam Melebihi Stok Barang', 'danger');
+                    }
+                    $i++;
+                }
             }
+
+
 
             $this->view('template/headerUser');
             $this->view('user/formPeminjaman', $data);
