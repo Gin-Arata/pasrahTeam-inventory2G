@@ -17,7 +17,7 @@
                         <div class="col-12">
                             <label for="namaBarang">Nama Barang</label>
                             <input name="nama_barang" type="text" class="form-control" id="namaBarang"
-                                placeholder="ex: Mouse">
+                                placeholder="ex: Mouse" required>
                         </div>
                     </div>
 
@@ -25,12 +25,12 @@
                         <div class="col-6">
                             <label for="kodeBarang">Kode Barang</label>
                             <input name="kode_barang" type="text" class="form-control" id="kodeBarang"
-                                placeholder="ex: 75TY23">
+                                placeholder="ex: 75TY23" required>
                         </div>
                         <div class="col-6">
                             <label for="jumlahBarang">Jumlah Barang</label>
                             <input name="jumlah_barang" type="text" class="form-control" id="jumlahBarang"
-                                placeholder="ex: 5">
+                                placeholder="ex: 5" required>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
                         <div class="col-6">
                             <label for="maintainerBarang">Maintainer Barang</label>
                             <input name="maintainer_barang" type="text" class="form-control" id="maintainerBarang"
-                                placeholder="ex: Agus Susilo">
+                                placeholder="ex: Agus Susilo" required>
                         </div>
                         <div class="col-4">
                             <label for="asalBarang">Asal Barang</label>
@@ -61,14 +61,14 @@
                         <div class="col-12">
                             <label for="keteranganBarang">Keterangan Barang</label>
                             <textarea name="keterangan_barang" class="form-control" name="" id="keteranganBarang"
-                                cols="30" rows="6"></textarea>
+                                cols="30" rows="6" required></textarea>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <label for="inputGambar">Gambar Barang</label>
-                            <input name="gambar_barang" class="form-control" type="file" id="inputGambar">
+                            <input name="gambar_barang" class="form-control" type="file" id="inputGambar" required>
                         </div>
                     </div>
 
