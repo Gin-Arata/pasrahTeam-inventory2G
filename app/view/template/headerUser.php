@@ -81,6 +81,6 @@
   </div>
   <section class="home-section">
     <a href="<?= BASEURL2 ?>/user/index">
-      <div class="text">INVENTARIS JTI POLINEMA</div>
+      <div class="text" id="judul">INVENTARIS JTI POLINEMA</div>
     </a>
   </section>

@@ -51,7 +51,8 @@
                                         <?= $rowBarang['keterangan_barang'] ?>
                                     </td>
                                     <td>
-                                        <input type="number" class="form-control" name="jumlah_dipinjam_<?= $rowBarang['id_barang'] ?>">
+                                        <input type="number" class="form-control"
+                                            name="jumlah_dipinjam_<?= $rowBarang['id_barang'] ?>">
                                     </td>
                                     <td class="d-flex justify-content-center">
                                         <input class="form-check-input" type="checkbox" name="idBarang[]"
