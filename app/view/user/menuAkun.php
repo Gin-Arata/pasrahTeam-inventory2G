@@ -23,6 +23,6 @@
 
 
             <img src="<?= BASEURL ?>/img/icon/<?= $data['user']['profil_user'] ?>" alt="Avatar" class="avatar">
-            <input type="reset" class="btn btn-primary btn-block" id="resetpass" value="Reset Password">
-            <input type="logout" class="btn btn-primary btn-block" id="logout" value="Log Out" readonly>
+            <a href="<?= BASEURL2 ?>/forgotpass/resetpass/<?= $_SESSION['idUser'] ?>" class="btn btn-primary btn-block reset-btn" id="resetpass">Reset Password</a>
+            <a href="<?= BASEURL2 ?>/logout" class="btn btn-primary btn-block logout-btn" id="logout">Logout</a>
         </div>
