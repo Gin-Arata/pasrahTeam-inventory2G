@@ -28,12 +28,23 @@ class User extends Controller
     }
     public function formPeminjaman()
     {
-        $i = 0;
-        foreach($_POST['idBarang'] as $cek) {
-            $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($cek);
-            $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam_'.$cek];
-            $i++;
+        if (!isset($_POST['idBarang'])) {
+            header('Location: ' . BASEURL2 . '/user/menuPeminjaman');
+            Flasher::setFlash('Peminjaman', 'Gagal!', 'Silahkan Pilih Barang Terlebih Dahulu', 'danger');
+            exit;
+        } else {
+            $i = 0;
+            foreach ($_POST['idBarang'] as $cek) {
+                $data['selectedBarang'][$i] = $this->model('User_model')->getBarangById($cek);
+                $data['jumlahBarang'][$i] = $_POST['jumlah_dipinjam_' . $cek];
+                $i++;
+            }
+
+            $this->view('template/headerUser');
+            $this->view('user/formPeminjaman', $data);
+            $this->view('template/footerUser');
         }
+
         // for ($j = 0; $j < count($_POST['idBarang']); $j++) {
         //     for ($i = 0; $i < count($_POST['jumlah_dipinjam']); $i++) {
         //         if ($_POST['jumlah_dipinjam'][$i] == "") {
@@ -52,11 +63,6 @@ class User extends Controller
         // }
         // for ($i = 0; $i < count($_POST['jumlah_dipinjam']); $i++) {
         // }
-
-
-        $this->view('template/headerUser');
-        $this->view('user/formPeminjaman', $data);
-        $this->view('template/footerUser');
     }
 
     // function prosesPinjam
@@ -93,28 +99,35 @@ class User extends Controller
 
     public function prosesPengembalian()
     {
-        for ($i = 0; $i < count($_POST['idPeminjaman']); $i++) {
-            $data[$i] = [
-                'idPeminjaman' => $_POST['idPeminjaman'][$i],
-                'status' => 'Dikembalikan'
-            ];
+        if (!isset($_POST['idPeminjaman'])) {
+            header('Location: ' . BASEURL2 . '/user/menuPengembalian');
+            Flasher::setFlash('Pengembalian', 'Gagal!', 'Silahkan Pilih Barang yang Ingin Dikembalikan Terlebih Dahulu', 'danger');
+            exit;
+        } else {
+            for ($i = 0; $i < count($_POST['idPeminjaman']); $i++) {
+                $data[$i] = [
+                    'idPeminjaman' => $_POST['idPeminjaman'][$i],
+                    'status' => 'Dikembalikan'
+                ];
 
-            $this->model('User_model')->updatePeminjamanStatus($data[$i]);
+                $this->model('User_model')->updatePeminjamanStatus($data[$i]);
 
-            $dataBarang[$i] = $this->model('User_model')->getAllBarangByIdPeminjaman($data[$i]);
+                $dataBarang[$i] = $this->model('User_model')->getAllBarangByIdPeminjaman($data[$i]);
 
-            $dataBarang[$i] = [
-                'id_barang' => $dataBarang[$i][0]['id_barang'],
-                'jumlah_dipinjam' => $dataBarang[$i][0]['jumlah_dipinjam']
-            ];
+                $dataBarang[$i] = [
+                    'id_barang' => $dataBarang[$i][0]['id_barang'],
+                    'jumlah_dipinjam' => $dataBarang[$i][0]['jumlah_dipinjam']
+                ];
 
-            if ($this->model('User_model')->updateJumlahBarang($dataBarang[$i]) > 0) {
-                Flasher::setFlash('Pengembalian', 'Berhasil', 'dilakukan!', 'success');
-            } else {
-                Flasher::setFlash('Pengembalian', 'Gagal', 'dilakukan!', 'danger');
+                if ($this->model('User_model')->updateJumlahBarang($dataBarang[$i]) > 0) {
+                    Flasher::setFlash('Pengembalian', 'Berhasil', 'dilakukan!', 'success');
+                } else {
+                    Flasher::setFlash('Pengembalian', 'Gagal', 'dilakukan!', 'danger');
+                }
             }
+            header('Location: ' . BASEURL2 . '/user/menuPengembalian');
+
         }
-        header('Location: ' . BASEURL2 . '/user/menuPengembalian');
     }
 
     public function menuHistory()
