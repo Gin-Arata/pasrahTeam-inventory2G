@@ -4,9 +4,6 @@ if(isset($_SESSION['userRole'])){
     if($_SESSION['userRole'] == 'admin'){
         header('Location: '.BASEURL2.'/admin');
         exit;
-    } else if($_SESSION['userRole'] == 'user'){
-        header('Location: '.BASEURL2.'/user');
-        exit;
     }
 }
 

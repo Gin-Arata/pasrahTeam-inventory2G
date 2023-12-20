@@ -45,7 +45,7 @@ body::before {
 
 
 /*  tombol */
-input[type="reset"] {
+.reset-btn {
     position: absolute;
     bottom: 0;
     color: #fff;
@@ -63,7 +63,7 @@ input[type="reset"] {
 
 }
 
-input[type="logout"] {
+.logout-btn {
     position: absolute;
     bottom: 0;
     color: #fff;
