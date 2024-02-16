@@ -16,7 +16,7 @@
                                 <label class="mb-0 me-2">Nama Peminjam</label>
                             </div>
                             <div class="col-md-4">
-                                <input style="color: white; background-color: #838C96;" type="text"
+                                <input style="color: black; background-color: white;" type="text"
                                     class="form-control input-set" id="NIP/NIM" value="<?= $_SESSION['userName'] ?>"
                                     disabled>
                             </div>
@@ -28,7 +28,7 @@
                                 <label class="mb-0 me-2">NIP/NIM</label>
                             </div>
                             <div class="col-md-4">
-                                <input style="color: white; background-color: #838C96;" type="text"
+                                <input style="color: black; background-color: white;" type="text"
                                     class="form-control input-set" value="<?= $_SESSION['userNim'] ?>" id="NIP/NIM"
                                     disabled>
                             </div>

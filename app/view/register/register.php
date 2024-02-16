@@ -14,7 +14,10 @@
 <body>
     <div class="background-web"></div>
     <div class="container">
-        <form id="Form1" method="POST" action="<?php echo BASEURL;?>">
+        <form id="Form1" method="POST" action="<?php echo BASEURL; ?>">
+            <?php
+            Flasher::flash();
+            ?>
             <h3>REGISTER</h3>
             <label>Nama</label>
             <div class="form-group form-field">
@@ -22,11 +25,13 @@
             </div>
             <label>NIP/NIM</label>
             <div class="form-group form-field">
-                <input type="text" name="nomorinduk" class="form-control" id="nomor-induk" placeholder="ex : 1234567890" required>
+                <input type="text" name="nomorinduk" class="form-control" id="nomor-induk" placeholder="ex : 1234567890"
+                    required>
             </div>
             <label>Email</label>
             <div class="form-group form-field">
-                <input type="email" name="email" class="form-control" id="email" placeholder="ex : bungasepatu@gmail.com" required>
+                <input type="email" name="email" class="form-control" id="email"
+                    placeholder="ex : bungasepatu@gmail.com" required>
             </div>
             <div class="form-group form-field">
                 <input type="button" class="btn btn-primary btn-block" id="Next1" value="Next" title="Next">
@@ -34,18 +39,20 @@
             <div class="link">Already have account?? <a href="<?= BASEURL2; ?>/login" title="Login">Login here</a></div>
         </form>
 
-        <form id="Form2" method="POST" action="<?php echo BASEURL2;?>/register/register">
+        <form id="Form2" method="POST" action="<?php echo BASEURL2; ?>/register/register">
             <h3>REGISTER</h3>
             <label>Password</label>
             <input type="hidden" name="nomorindukreal" id="nomorindukreal">
             <input type="hidden" name="emailreal" id="emailreal">
             <input type="hidden" name="nameUser" id="nameUser">
             <div class="form-group form-field">
-                <input type="password" name="password" class="form-control" id="password" placeholder="ex : polinemajos!" required>
+                <input type="password" name="password" class="form-control" id="password"
+                    placeholder="ex : polinemajos!" required>
             </div>
             <label>Confirm Password</label>
             <div class="form-group form-field">
-                <input type="password" name="cpassword" class="form-control" id="password" placeholder="ex : polinemajos!" required>
+                <input type="password" name="cpassword" class="form-control" id="password"
+                    placeholder="ex : polinemajos!" required>
             </div>
             <div class="form-group form-field">
                 <input type="button" class="btn btn-primary btn-block" id="Back1" value="Back" title="Back">
@@ -61,8 +68,8 @@
         </div> -->
     </div>
     <script>
-    
-        $('#Next1').on('click', function() {
+
+        $('#Next1').on('click', function () {
             // Ambil nilai dari formulir pertama
             var nomorIndukValue = $('#nomor-induk').val();
             var emailValue = $('#email').val();
@@ -72,13 +79,13 @@
             var formData1 = {
                 nomorInduk: nomorIndukValue,
                 email: emailValue,
-                namaUser:namaValue
+                namaUser: namaValue
             };
             $('#nomorindukreal').val(formData1.nomorInduk);
             $('#emailreal').val(formData1.email);
             $('#nameUser').val(formData1.namaUser);
         });
-</script>
+    </script>
     <footer class="copyright">
         <p>&copy; 2023 PasrahTeam</p>
     </footer>

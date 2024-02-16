@@ -6,10 +6,10 @@
         <div class="ml-3 mt-4">
             <h3>Ajukan Peminjaman Alat</h3>
             <p>Cari item yang ingin Anda pinjam, jika ada pilih yang anda perlukan lalu klik button selanjutnya</p>
+            <?php
+            Flasher::flash();
+            ?>
             <form class="example mr-3 mb-4" action="<?= BASEURL2 ?>/user/formPeminjaman" method="POST">
-                <?php
-                Flasher::flash();
-                ?>
                 <div class="table-responsive">
                     <table id="tabelPilihBarang" class="table table-striped mt-3" style="width:100%">
                         <thead>

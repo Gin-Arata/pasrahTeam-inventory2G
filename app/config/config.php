@@ -1,8 +1,8 @@
 <?php
 
-define('BASEURL', 'http://localhost/pasrahTeam-inventory2G/public');
+define('BASEURL', 'http://localhost:8080/pasrahTeam-inventory2G/public');
 
-define('BASEURL2', 'http://localhost/pasrahTeam-inventory2G');
+define('BASEURL2', 'http://localhost:8080/pasrahTeam-inventory2G');
 
 // DB
 define('DB_HOST', 'localhost');
